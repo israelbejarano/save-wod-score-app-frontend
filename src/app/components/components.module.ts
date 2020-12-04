@@ -6,13 +6,15 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { CardAtletaComponent } from './card-atleta/card-atleta.component';
 import { BuzonSugerenciasComponent } from './buzon-sugerencias/buzon-sugerencias.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 
 
 @NgModule({
   declarations: [
     CardAtletaComponent,
-    BuzonSugerenciasComponent
+    BuzonSugerenciasComponent,
+    EditarPerfilComponent
   ],
   imports: [
     CommonModule,
