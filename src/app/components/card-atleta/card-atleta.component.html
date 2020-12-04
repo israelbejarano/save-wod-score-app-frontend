@@ -1,0 +1,30 @@
+<ion-card>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="6">
+                <img class="imageClass" src="./assets/img/avatar-grey.png" />
+            </ion-col>
+            <ion-col size="6">
+                <ion-button (click)="editarPerfil()" expand="block" fill="clear">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <ion-label class="botonLabel">Editar perfil</ion-label>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card-header>
+        <ion-card-subtitle>rich.the.master@email.com</ion-card-subtitle>
+        <ion-card-title>Rich Froning Fraser</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-item>
+            <ion-icon name="body-outline"></ion-icon>
+            <ion-label class="perfilLabel">Altura: 180cms</ion-label>
+            <ion-label class="perfilLabel">Peso: 80kg</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+            <ion-label class="perfilLabel">F. Nacimiento: 02/02/1989</ion-label>
+        </ion-item>
+    </ion-card-content>
+</ion-card>
