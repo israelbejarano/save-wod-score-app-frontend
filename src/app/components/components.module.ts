@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CardAtletaComponent } from './card-atleta/card-atleta.component';
+import { BuzonSugerenciasComponent } from './buzon-sugerencias/buzon-sugerencias.component';
 
 
 
 @NgModule({
   declarations: [
-    CardAtletaComponent
+    CardAtletaComponent,
+    BuzonSugerenciasComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { CardAtletaComponent } from './card-atleta/card-atleta.component';
     TranslateModule,
   ],
   exports: [
-    CardAtletaComponent
+    CardAtletaComponent,
+    BuzonSugerenciasComponent
   ]
 })
 export class ComponentsModule { }
