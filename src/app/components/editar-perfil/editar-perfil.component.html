@@ -2,12 +2,18 @@
     <ion-toolbar>
         <ion-title>Editar perfil</ion-title>
         <ion-buttons slot="end">
-            <ion-button (click)="salir()">Salir</ion-button>
+            <ion-button (click)="salir()" fill="clear">Salir</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
     <ion-grid fixed>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input type="text" value="atleta.nombre" [(ngModel)]="atletaUpdateData.nombre"></ion-input>
+            </ion-col>
+        </ion-row>
         <ion-row>
             <ion-col size="12">
                 <ion-label position="floating">Altura</ion-label>
@@ -20,13 +26,15 @@
         <ion-row>
             <ion-col size="12">
                 <ion-label position="floating">Peso</ion-label>
-
                 <ion-range [(ngModel)]="atletaUpdateData.peso" pin="true" step="0.1" ticks="true" min="30" max="200" color="primary" [value]="atleta.peso">
                     <ion-icon name="water-outline" slot="start"></ion-icon>
                     <ion-badge slot="end">{{atletaUpdateData.peso}} kg</ion-badge>
                 </ion-range>
             </ion-col>
-
         </ion-row>
     </ion-grid>
+    <ion-button (click)="guardar()" expand="block" fill="clear">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        guardar
+    </ion-button>
 </ion-content>

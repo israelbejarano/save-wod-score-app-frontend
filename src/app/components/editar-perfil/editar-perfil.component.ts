@@ -27,6 +27,10 @@ export class EditarPerfilComponent implements OnInit {
     console.log('modelo:', this.atletaUpdateData);
   }
 
+  guardar() {
+    console.log('modelo a guardar:', this.atletaUpdateData);
+  }
+
   salir() {
     this.modalController.dismiss();
   }
