@@ -1,0 +1,7 @@
+{
+  "name": "saveWodScoreApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
