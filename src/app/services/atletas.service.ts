@@ -8,7 +8,9 @@ export class AtletasService {
 
   private atletaPrueba: Atleta = {
     altura: 179,
-    peso: 78.9
+    peso: 78.9,
+    nombre: 'Rich Froning Fraser',
+    email: 'ritch.the-master@email.com'
   };
 
   constructor() { }
