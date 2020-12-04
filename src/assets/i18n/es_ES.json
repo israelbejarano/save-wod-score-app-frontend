@@ -1,0 +1,20 @@
+{
+    "inicio": {
+        "header": {
+            "titulo": "Tus entrenamientos"
+        }
+    },
+    "nuevo": {
+        "header": {
+            "titulo": "Nuevo entrenamiento"
+        },
+        "recordBoton": "nuevo record",
+        "wodboton": " nuevo entrenamiento"
+    },
+    "perfil": {
+        "header": {
+            "titulo": "Nombre usuario"
+        }
+    },
+    "prueba": "hola"
+}
