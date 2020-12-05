@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Atleta } from '../models/interfaces/atleta';
+import { AtletaUpdateData } from '../models/classes/atleta.update.data';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,24 @@ export class AtletasService {
     sexo: 'M'
   };
 
+  updateAtletaEvent = new EventEmitter();
+
   constructor() { }
 
   public getAtletaData(): Atleta {
     return this.atletaPrueba;
+  }
+
+  public updateAtleta(atletaToUpdate: AtletaUpdateData) {
+    if (atletaToUpdate.id === this.atletaPrueba.id) {
+      this.atletaPrueba.nombre = atletaToUpdate.nombre;
+      this.atletaPrueba.email = atletaToUpdate.email;
+      this.atletaPrueba.altura = atletaToUpdate.altura;
+      this.atletaPrueba.peso = atletaToUpdate.peso;
+      this.atletaPrueba.fNacimiento = atletaToUpdate.fNacimiento;
+      this.atletaPrueba.img = atletaToUpdate.img;
+      this.atletaPrueba.sexo = atletaToUpdate.sexo;
+      this.updateAtletaEvent.emit(this.atletaPrueba);
+    }
   }
 }
