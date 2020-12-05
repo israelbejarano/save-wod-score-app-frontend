@@ -46,6 +46,16 @@
                 </ion-range>
             </ion-col>
         </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Sexo</ion-label>
+                <ion-select [(ngModel)]="atletaUpdateData.sexo" placeholder="Seleccione uno" cancelText="salir" okText="Aceptar">
+                    <ion-select-option value="">Ninguno</ion-select-option>
+                    <ion-select-option value="F">Femenino</ion-select-option>
+                    <ion-select-option value="M">Masculino</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
     </ion-grid>
     <ion-button (click)="guardar()" expand="block" fill="clear">
         <ion-icon name="save-outline" slot="start"></ion-icon>
