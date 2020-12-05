@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AtletasService } from 'src/app/services/atletas.service';
 import { AtletaUpdateData } from '../../models/classes/atleta.update.data';
 import { Atleta } from '../../models/interfaces/atleta';
 
@@ -16,7 +17,8 @@ export class EditarPerfilComponent implements OnInit {
   atletaUpdateData: AtletaUpdateData = new AtletaUpdateData();
   fNacAtletaUpdateData: string;
 
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController,
+              private atletasService: AtletasService) {
   }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ export class EditarPerfilComponent implements OnInit {
   guardar() {
     this.atletaUpdateData.fNacimiento = new Date(this.fNacAtletaUpdateData);
     console.log('modelo a guardar:', this.atletaUpdateData);
+    this.atletasService.updateAtleta(this.atletaUpdateData);
+    this.salir();
   }
 
   salir() {
