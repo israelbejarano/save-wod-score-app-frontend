@@ -7,6 +7,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CardAtletaComponent } from './card-atleta/card-atleta.component';
 import { BuzonSugerenciasComponent } from './buzon-sugerencias/buzon-sugerencias.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { WodsListComponent } from './wods-list/wods-list.component';
+import { WodCardComponent } from './wod-card/wod-card.component';
+import { NewRecordComponent } from './new-record/new-record.component';
 
 
 
@@ -14,7 +17,10 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
   declarations: [
     CardAtletaComponent,
     BuzonSugerenciasComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    WodsListComponent,
+    WodCardComponent,
+    NewRecordComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +30,8 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
   ],
   exports: [
     CardAtletaComponent,
-    BuzonSugerenciasComponent
+    BuzonSugerenciasComponent,
+    WodsListComponent
   ]
 })
 export class ComponentsModule { }
