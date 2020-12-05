@@ -18,6 +18,7 @@ export class CardAtletaComponent implements OnInit {
 
   ngOnInit() {
     this.atleta = this.atletasService.getAtletaData();
+    console.log(this.atleta);
   }
 
   async editarPerfil() {

@@ -16,6 +16,20 @@
         </ion-row>
         <ion-row>
             <ion-col size="12">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="text" value="atleta.email" [(ngModel)]="atletaUpdateData.email"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">F. Nacimiento</ion-label>
+
+                <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="fNacAtletaUpdateData" cancelText="salir" doneText="Aceptar"></ion-datetime>
+
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
                 <ion-label position="floating">Altura</ion-label>
                 <ion-range [(ngModel)]="atletaUpdateData.altura" pin="true" min="50" max="250" color="primary" [value]="atleta.altura">
                     <ion-icon name="body-outline" slot="start"></ion-icon>

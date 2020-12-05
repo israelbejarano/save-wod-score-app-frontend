@@ -14,20 +14,18 @@ export class EditarPerfilComponent implements OnInit {
 
 
   atletaUpdateData: AtletaUpdateData = new AtletaUpdateData();
+  fNacAtletaUpdateData: string;
 
   constructor(private modalController: ModalController) {
   }
 
   ngOnInit() {
     this.atletaUpdateData = this.atleta;
-  }
-
-  seleccionEstatura(event: CustomEvent) {
-    console.log('event: ', event);
-    console.log('modelo:', this.atletaUpdateData);
+    this.fNacAtletaUpdateData = this.atletaUpdateData.fNacimiento.toISOString();
   }
 
   guardar() {
+    this.atletaUpdateData.fNacimiento = new Date(this.fNacAtletaUpdateData);
     console.log('modelo a guardar:', this.atletaUpdateData);
   }
 
