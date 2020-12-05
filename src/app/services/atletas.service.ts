@@ -13,7 +13,8 @@ export class AtletasService {
     nombre: 'Rich Froning Fraser',
     email: 'ritch.the-master@email.com',
     fNacimiento: new Date('02/02/1989'),
-    img: './assets/img/avatar-grey.png'
+    img: './assets/img/avatar-grey.png',
+    sexo: 'M'
   };
 
   constructor() { }

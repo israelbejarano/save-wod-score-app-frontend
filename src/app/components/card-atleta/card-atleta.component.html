@@ -21,6 +21,9 @@
             <ion-icon name="body-outline"></ion-icon>
             <ion-label class="perfilLabel">Altura: {{atleta.altura}}cms</ion-label>
             <ion-label class="perfilLabel">Peso: {{atleta.peso}}kg</ion-label>
+            <ion-icon *ngIf="atleta.sexo === ''" slot="end" name="male-female-outline"></ion-icon>
+            <ion-icon *ngIf="atleta.sexo === 'M'" slot="end" name="male-outline"></ion-icon>
+            <ion-icon *ngIf="atleta.sexo === 'F'" slot="end" name="female-outline"></ion-icon>
         </ion-item>
         <ion-item>
             <ion-icon name="calendar-clear-outline"></ion-icon>

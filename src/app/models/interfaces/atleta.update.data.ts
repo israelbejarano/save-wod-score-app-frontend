@@ -6,4 +6,5 @@ export interface AtletaUpdateDataInterface {
     email: string;
     fNacimiento: Date;
     img: string;
+    sexo: string;
 }
