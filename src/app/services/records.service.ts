@@ -26,7 +26,7 @@ export class RecordsService {
     },
     {
       id: 5,
-      nombre: 'Máquinas ergómetras'
+      nombre: 'Máq. Ergómetras'
     },
     {
       id: 6,
@@ -389,8 +389,52 @@ export class RecordsService {
       id: 71,
       nombre: '1500m abike',
       idGrupoRecord: 5,
+    },
+    {
+      id: 72,
+      nombre: '100m run',
+      idGrupoRecord: 6,
+    },
+    {
+      id: 73,
+      nombre: '200m run',
+      idGrupoRecord: 6,
+    },
+    {
+      id: 74,
+      nombre: '400m run',
+      idGrupoRecord: 6,
+    },
+    {
+      id: 75,
+      nombre: '1000m run',
+      idGrupoRecord: 6,
+    },
+    {
+      id: 76,
+      nombre: '5000m run',
+      idGrupoRecord: 6,
+    },
+    {
+      id: 77,
+      nombre: '1 mile run',
+      idGrupoRecord: 6,
     }
   ];
 
   constructor() { }
+
+  public getGruposRecords(): GrupoRecords[] {
+    return this.gruposRecords;
+  }
+
+  public getTiposRecordsByGrupoRecord(grupoRecord: GrupoRecords): TipoRecord[] {
+    const tiposRecordsOfGruposRecords: TipoRecord[] = [];
+    this.tiposRecords.forEach(tipoRecord => {
+      if (tipoRecord.idGrupoRecord === grupoRecord.id) {
+        tiposRecordsOfGruposRecords.push(tipoRecord);
+      }
+    });
+    return tiposRecordsOfGruposRecords;
+  }
 }
