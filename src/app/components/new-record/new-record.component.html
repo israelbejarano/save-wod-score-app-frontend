@@ -8,7 +8,40 @@
 </ion-header>
 <ion-content [fullscreen]="true">
     <ion-grid fixed>
-
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Grupos de records</ion-label>
+                <ion-select [(ngModel)]="modeloRecord.gruposRecordsModel" (ionChange)="getTiposEjercicios()" placeholder="Seleccione un grupo de records" cancelText="cancelar" okText="aceptar">
+                    <ion-select-option [value]="grupoRecord" *ngFor="let grupoRecord of gruposRecords">{{grupoRecord.nombre}}</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Ejercicio</ion-label>
+                <ion-select [disabled]="tiposRecords.length <= 0" [(ngModel)]="modeloRecord.tipoRecordModel" (ionChange)="showFormulario()" placeholder="Seleccione un ejercicio" cancelText="cancelar" okText="aceptar">
+                    <ion-select-option [value]="tipoRecord" *ngFor="let tipoRecord of tiposRecords">{{tipoRecord.nombre}}</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Kilos</ion-label>
+                <ion-input [(ngModel)]="modeloRecord.kilos" type="number" placeholder="Introduce los kilos levantados"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Repeticiones</ion-label>
+                <ion-input [(ngModel)]="modeloRecord.repeticiones" type="number" placeholder="Introduce el nº de repeticiones"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <!-- <ion-label>Chaleco lastrado</ion-label> -->
+                <ion-checkbox></ion-checkbox>
+            </ion-col>
+        </ion-row>
     </ion-grid>
     <ion-button (click)="guardar()" expand="block" fill="clear">
         <ion-icon name="save-outline" slot="start"></ion-icon>
