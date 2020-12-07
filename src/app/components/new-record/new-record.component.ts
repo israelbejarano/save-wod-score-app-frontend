@@ -15,6 +15,7 @@ class ModeloRecord {
   rm: boolean;
   pr: boolean;
   fRealizacion: Date;
+  observaciones: string;
 }
 
 @Component({
