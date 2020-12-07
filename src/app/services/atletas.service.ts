@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { IAtleta } from '../models/interfaces/atleta';
-import { AtletaUpdateData } from '../models/classes/atleta.update.data';
+import { IAtleta } from '../models/interfaces/api.interfaces';
+import { AtletaUpdateData, Sugerencia } from '../models/classes/api.classes';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,10 @@ export class AtletasService {
     sexo: 'M'
   };
 
+  private sugerencias: Sugerencia[] = [];
+
   updateAtletaEvent = new EventEmitter();
+  createSugerenciaEvent = new EventEmitter();
 
   constructor() { }
 
@@ -37,5 +40,10 @@ export class AtletasService {
       this.atletaPrueba.sexo = atletaToUpdate.sexo;
       this.updateAtletaEvent.emit(this.atletaPrueba);
     }
+  }
+
+  public crearSugerencia(sugerencia: Sugerencia) {
+    this.sugerencias.push(sugerencia);
+    this.createSugerenciaEvent.emit();
   }
 }
