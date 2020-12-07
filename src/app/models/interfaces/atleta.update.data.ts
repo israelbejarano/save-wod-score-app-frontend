@@ -1,4 +1,4 @@
-export interface AtletaUpdateDataInterface {
+export interface IAtletaUpdateData {
     id: number;
     altura: number;
     peso: number;

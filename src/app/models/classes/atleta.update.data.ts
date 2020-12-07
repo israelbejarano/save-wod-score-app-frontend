@@ -1,6 +1,6 @@
-import { AtletaUpdateDataInterface } from '../interfaces/atleta.update.data';
+import { IAtletaUpdateData } from '../interfaces/atleta.update.data';
 
-export class AtletaUpdateData implements AtletaUpdateDataInterface {
+export class AtletaUpdateData implements IAtletaUpdateData {
     id: number;
     altura: number;
     peso: number;

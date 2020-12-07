@@ -1,4 +1,4 @@
-export interface Atleta {
+export interface IAtleta {
     id: number;
     altura: number;
     peso: number;
