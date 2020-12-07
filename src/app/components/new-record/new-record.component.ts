@@ -12,6 +12,8 @@ class ModeloRecord {
   repeticiones: number;
   chaleco: boolean;
   tiempo: string;
+  rm: boolean;
+  pr: boolean;
 }
 
 @Component({
@@ -33,6 +35,7 @@ export class NewRecordComponent implements OnInit {
   ngOnInit() {
     this.gruposRecords = this.recordsService.getGruposRecords();
     // console.log('gruposRecords: ', this.gruposRecords);
+    this.modeloRecord.rm = true;
   }
 
   getTiposEjercicios() {

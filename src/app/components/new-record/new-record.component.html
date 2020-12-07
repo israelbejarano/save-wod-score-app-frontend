@@ -19,7 +19,7 @@
         <ion-row>
             <ion-col size="12">
                 <ion-label position="floating">Ejercicio</ion-label>
-                <ion-select [disabled]="tiposRecords.length <= 0" [(ngModel)]="modeloRecord.tipoRecordModel" (ionChange)="showFormulario()" placeholder="Seleccione un ejercicio" cancelText="cancelar" okText="aceptar">
+                <ion-select [disabled]="tiposRecords.length <= 0" [(ngModel)]="modeloRecord.tipoRecordModel" placeholder="Seleccione un ejercicio" cancelText="cancelar" okText="aceptar">
                     <ion-select-option [value]="tipoRecord" *ngFor="let tipoRecord of tiposRecords">{{tipoRecord.nombre}}</ion-select-option>
                 </ion-select>
             </ion-col>
@@ -38,9 +38,9 @@
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-item lines="none" class="customItem">
+                <ion-item lines="none">
                     <ion-label>Chaleco lastrado</ion-label>
-                    <ion-checkbox [(ngModel)]="modeloRecord.chaleco" slot="start"></ion-checkbox>
+                    <ion-checkbox [(ngModel)]="modeloRecord.chaleco" slot="end" class="chalecoCustomCheck"></ion-checkbox>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -48,6 +48,20 @@
             <ion-col size="12">
                 <ion-label position="floating">Tiempo</ion-label>
                 <ion-datetime display-format="HH:mm:ss" [(ngModel)]="tiempo" cancelText="salir" doneText="Aceptar"></ion-datetime>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                <ion-item lines="none" class="customItem">
+                    <ion-label>RM</ion-label>
+                    <ion-checkbox [(ngModel)]="modeloRecord.rm" slot="end" class="RmPrCustomCheck"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item lines="none" class="customItem">
+                    <ion-label>PR</ion-label>
+                    <ion-checkbox [(ngModel)]="modeloRecord.pr" slot="end" class="RmPrCustomCheck"></ion-checkbox>
+                </ion-item>
             </ion-col>
         </ion-row>
     </ion-grid>
