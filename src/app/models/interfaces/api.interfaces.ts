@@ -4,3 +4,4 @@ export * from './grupo.records';
 export * from './record.create.data';
 export * from './record';
 export * from './tipo.record';
+export * from './sugerencia';
