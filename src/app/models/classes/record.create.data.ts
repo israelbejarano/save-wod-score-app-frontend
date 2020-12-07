@@ -4,6 +4,7 @@ import { ITipoRecord } from '../interfaces/tipo.record';
 
 export class RecordCreateData implements IRecordCreateData {
 
+    id: number;
     gruposRecordsModel: IGrupoRecords;
     tipoRecordModel: ITipoRecord;
     kilos: number;
