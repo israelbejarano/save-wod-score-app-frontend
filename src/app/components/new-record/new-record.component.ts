@@ -14,6 +14,7 @@ class ModeloRecord {
   tiempo: string;
   rm: boolean;
   pr: boolean;
+  fRealizacion: Date;
 }
 
 @Component({
@@ -28,6 +29,7 @@ export class NewRecordComponent implements OnInit {
 
   modeloRecord: ModeloRecord = new ModeloRecord();
   tiempo = '00:00:00';
+  fRealizacion: string;
 
   constructor(private modalController: ModalController,
               private recordsService: RecordsService) { }
@@ -45,6 +47,7 @@ export class NewRecordComponent implements OnInit {
 
   guardar() {
     this.modeloRecord.tiempo = this.tiempo;
+    this.modeloRecord.fRealizacion = new Date(this.fRealizacion)
     console.log('modelo: ', this.modeloRecord);
     // this.salir();
   }
