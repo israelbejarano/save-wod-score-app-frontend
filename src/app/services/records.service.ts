@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { GrupoRecords } from '../models/interfaces/grupo.records';
-import { TipoRecord } from '../models/interfaces/tipo.record';
+import { IGrupoRecords } from '../models/interfaces/grupo.records';
+import { ITipoRecord } from '../models/interfaces/tipo.record';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecordsService {
 
-  private gruposRecords: GrupoRecords[] = [
+  private gruposRecords: IGrupoRecords[] = [
     {
       id: 1,
       nombre: 'Fuerza'
@@ -34,7 +34,7 @@ export class RecordsService {
     }
   ];
 
-  private tiposRecords: TipoRecord[] = [
+  private tiposRecords: ITipoRecord[] = [
     {
       id: 1,
       nombre: 'Peso muerto',
@@ -424,12 +424,12 @@ export class RecordsService {
 
   constructor() { }
 
-  public getGruposRecords(): GrupoRecords[] {
+  public getGruposRecords(): IGrupoRecords[] {
     return this.gruposRecords;
   }
 
-  public getTiposRecordsByGrupoRecord(grupoRecord: GrupoRecords): TipoRecord[] {
-    const tiposRecordsOfGruposRecords: TipoRecord[] = [];
+  public getTiposRecordsByGrupoRecord(grupoRecord: IGrupoRecords): ITipoRecord[] {
+    const tiposRecordsOfGruposRecords: ITipoRecord[] = [];
     this.tiposRecords.forEach(tipoRecord => {
       if (tipoRecord.idGrupoRecord === grupoRecord.id) {
         tiposRecordsOfGruposRecords.push(tipoRecord);
@@ -437,4 +437,6 @@ export class RecordsService {
     });
     return tiposRecordsOfGruposRecords;
   }
+
+  // TODO: crear servicio que crea el record
 }

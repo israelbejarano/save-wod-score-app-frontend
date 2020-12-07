@@ -1,22 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { RecordsService } from '../../services/records.service';
-import { GrupoRecords } from '../../models/interfaces/grupo.records';
-import { TipoRecord } from '../../models/interfaces/tipo.record';
-
-// TODO: llevarlo a una iterfaz y a una clase
-class ModeloRecord {
-  gruposRecordsModel: GrupoRecords;
-  tipoRecordModel: TipoRecord;
-  kilos: number;
-  repeticiones: number;
-  chaleco: boolean;
-  tiempo: string;
-  rm: boolean;
-  pr: boolean;
-  fRealizacion: Date;
-  observaciones: string;
-}
+import { IGrupoRecords } from '../../models/interfaces/grupo.records';
+import { ITipoRecord } from '../../models/interfaces/tipo.record';
+import { RecordCreateData } from '../../models/classes/record.create.data';
 
 @Component({
   selector: 'app-new-record',
@@ -25,10 +12,10 @@ class ModeloRecord {
 })
 export class NewRecordComponent implements OnInit {
 
-  gruposRecords: GrupoRecords[];
-  tiposRecords: TipoRecord[] = [];
+  gruposRecords: IGrupoRecords[];
+  tiposRecords: ITipoRecord[] = [];
 
-  modeloRecord: ModeloRecord = new ModeloRecord();
+  modeloRecord: RecordCreateData = new RecordCreateData();
   tiempo = '00:00:00';
   fRealizacion: string;
 
@@ -52,6 +39,7 @@ export class NewRecordComponent implements OnInit {
     this.modeloRecord.tiempo = this.tiempo;
     this.modeloRecord.fRealizacion = new Date(this.fRealizacion);
     console.log('modelo: ', this.modeloRecord);
+    // TODO: llamar al servicio que crea el record
     // this.salir();
   }
 

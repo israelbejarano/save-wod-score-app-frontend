@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Atleta } from '../models/interfaces/atleta';
+import { IAtleta } from '../models/interfaces/atleta';
 import { AtletaUpdateData } from '../models/classes/atleta.update.data';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { AtletaUpdateData } from '../models/classes/atleta.update.data';
 })
 export class AtletasService {
 
-  private atletaPrueba: Atleta = {
+  private atletaPrueba: IAtleta = {
     id: 1,
     altura: 179,
     peso: 78.9,
@@ -22,7 +22,7 @@ export class AtletasService {
 
   constructor() { }
 
-  public getAtletaData(): Atleta {
+  public getAtletaData(): IAtleta {
     return this.atletaPrueba;
   }
 

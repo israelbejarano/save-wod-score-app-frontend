@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
-import { Atleta } from '../../models/interfaces/atleta';
+import { IAtleta } from '../../models/interfaces/atleta';
 import { AtletasService } from '../../services/atletas.service';
 import { Subscription } from 'rxjs';
 import { MensajesService } from '../../services/mensajes.service';
@@ -13,7 +13,7 @@ import { MensajesService } from '../../services/mensajes.service';
 })
 export class CardAtletaComponent implements OnInit, OnDestroy {
 
-  atleta: Atleta;
+  atleta: IAtleta;
   updateAtletaSubscription: Subscription;
 
   constructor(private modalController: ModalController,
@@ -30,7 +30,7 @@ export class CardAtletaComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.atleta = this.atletasService.getAtletaData();
     console.log(this.atleta);
-    this.updateAtletaSubscription = this.atletasService.updateAtletaEvent.subscribe((atletaUpdated: Atleta) => {
+    this.updateAtletaSubscription = this.atletasService.updateAtletaEvent.subscribe((atletaUpdated: IAtleta) => {
       // console.log('subscribe del update: ', atletaUpdated);
       this.atleta = atletaUpdated;
       const mms = 'Perfil actualizado con éxito.';
