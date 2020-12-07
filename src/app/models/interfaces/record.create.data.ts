@@ -1,5 +1,6 @@
 import { IGrupoRecords } from './grupo.records';
 import { ITipoRecord } from './tipo.record';
+import { IAtleta } from './atleta';
 
 export interface IRecordCreateData {
 
@@ -14,4 +15,5 @@ export interface IRecordCreateData {
     pr: boolean;
     fRealizacion: Date;
     observaciones: string;
+    atleta: IAtleta;
 }
