@@ -32,6 +32,8 @@ export class NewRecordComponent implements OnInit {
   tiempo = '00:00:00';
   fRealizacion: string;
 
+  puedeGuardarRecord = false;
+
   constructor(private modalController: ModalController,
               private recordsService: RecordsService) { }
 
@@ -55,6 +57,14 @@ export class NewRecordComponent implements OnInit {
 
   salir() {
     this.modalController.dismiss();
+  }
+
+  guardarRecord(varAValidar) {
+    if (varAValidar) {
+      this.puedeGuardarRecord = true;
+    } else {
+      this.puedeGuardarRecord = false;
+    }
   }
 
 }

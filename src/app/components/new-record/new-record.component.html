@@ -27,13 +27,13 @@
         <ion-row>
             <ion-col size="12">
                 <ion-label position="floating">Kilos</ion-label>
-                <ion-input [(ngModel)]="modeloRecord.kilos" type="number" placeholder="Introduce los kilos levantados"></ion-input>
+                <ion-input (ionChange)="guardarRecord(modeloRecord.kilos)" [(ngModel)]="modeloRecord.kilos" type="number" placeholder="Introduce los kilos levantados"></ion-input>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
                 <ion-label position="floating">Repeticiones</ion-label>
-                <ion-input [(ngModel)]="modeloRecord.repeticiones" type="number" placeholder="Introduce el nº de repeticiones"></ion-input>
+                <ion-input (ionChange)="guardarRecord(modeloRecord.repeticiones)" [(ngModel)]="modeloRecord.repeticiones" type="number" placeholder="Introduce el nº de repeticiones"></ion-input>
             </ion-col>
         </ion-row>
         <ion-row>
@@ -67,7 +67,7 @@
         <ion-row>
             <ion-col size="12">
                 <ion-label position="floating">F. Realización</ion-label>
-                <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="fRealizacion" cancelText="salir" doneText="Aceptar"></ion-datetime>
+                <ion-datetime (ionChange)="guardarRecord(fRealizacion)" display-format="DD/MM/YYYY" [(ngModel)]="fRealizacion" cancelText="salir" doneText="Aceptar"></ion-datetime>
             </ion-col>
         </ion-row>
         <ion-row>
@@ -77,7 +77,7 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-button (click)="guardar()" expand="block" fill="clear">
+    <ion-button [disabled]="!puedeGuardarRecord" (click)="guardar()" expand="block" fill="clear">
         <ion-icon name="save-outline" slot="start"></ion-icon>
         guardar
     </ion-button>
