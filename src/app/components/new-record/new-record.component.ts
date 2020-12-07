@@ -50,7 +50,7 @@ export class NewRecordComponent implements OnInit {
 
   guardar() {
     this.modeloRecord.tiempo = this.tiempo;
-    this.modeloRecord.fRealizacion = new Date(this.fRealizacion)
+    this.modeloRecord.fRealizacion = new Date(this.fRealizacion);
     console.log('modelo: ', this.modeloRecord);
     // this.salir();
   }
