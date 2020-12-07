@@ -10,7 +10,8 @@ class ModeloRecord {
   tipoRecordModel: TipoRecord;
   kilos: number;
   repeticiones: number;
-  chaleco: any;
+  chaleco: boolean;
+  tiempo: string;
 }
 
 @Component({
@@ -24,6 +25,7 @@ export class NewRecordComponent implements OnInit {
   tiposRecords: TipoRecord[] = [];
 
   modeloRecord: ModeloRecord = new ModeloRecord();
+  tiempo = '00:00:00';
 
   constructor(private modalController: ModalController,
               private recordsService: RecordsService) { }
@@ -38,15 +40,11 @@ export class NewRecordComponent implements OnInit {
     this.tiposRecords = this.recordsService.getTiposRecordsByGrupoRecord(this.modeloRecord.gruposRecordsModel);
   }
 
-  showFormulario() {
-    // console.log('modelo tipos de records: ', this.tipoRecordModel);
-  }
-
   guardar() {
+    this.modeloRecord.tiempo = this.tiempo;
     console.log('modelo: ', this.modeloRecord);
     // this.salir();
   }
-
 
   salir() {
     this.modalController.dismiss();
