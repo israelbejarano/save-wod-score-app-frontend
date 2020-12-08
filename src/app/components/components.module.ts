@@ -10,6 +10,8 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 import { WodsListComponent } from './wods-list/wods-list.component';
 import { WodCardComponent } from './wod-card/wod-card.component';
 import { NewRecordComponent } from './new-record/new-record.component';
+import { RecordsListComponent } from './records-list/records-list.component';
+import { RecordCardComponent } from './record-card/record-card.component';
 
 
 
@@ -20,7 +22,9 @@ import { NewRecordComponent } from './new-record/new-record.component';
     EditarPerfilComponent,
     WodsListComponent,
     WodCardComponent,
-    NewRecordComponent
+    NewRecordComponent,
+    RecordsListComponent,
+    RecordCardComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +35,8 @@ import { NewRecordComponent } from './new-record/new-record.component';
   exports: [
     CardAtletaComponent,
     BuzonSugerenciasComponent,
-    WodsListComponent
+    WodsListComponent,
+    RecordsListComponent
   ]
 })
 export class ComponentsModule { }
