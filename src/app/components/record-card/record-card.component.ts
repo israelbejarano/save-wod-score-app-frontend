@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IRecord } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-record-card',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordCardComponent implements OnInit {
 
+  @Input() record: IRecord;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('record: ', this.record);
+  }
 
 }

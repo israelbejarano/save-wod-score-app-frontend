@@ -1,3 +1,7 @@
-<p>
-  records-list works!
-</p>
+<ion-grid fixed>
+    <ion-row *ngFor="let record of records">
+        <ion-col size="12">
+            <app-record-card [record]="record"></app-record-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>

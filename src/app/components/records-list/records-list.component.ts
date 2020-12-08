@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RecordsService } from '../../services/records.service';
+import { IAtleta, IRecord } from 'src/app/models/interfaces/api.interfaces';
+import { AtletasService } from '../../services/atletas.service';
 
 @Component({
   selector: 'app-records-list',
@@ -7,8 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordsListComponent implements OnInit {
 
-  constructor() { }
+  atleta: IAtleta;
+  records: IRecord[];
 
-  ngOnInit() {}
+  constructor(private atletasService: AtletasService,
+              private recordsService: RecordsService) { }
+
+  ngOnInit() {
+    this.atleta = this.atletasService.getAtletaData();
+    this.records = this.recordsService.getListadoRecordOfAtleta(this.atleta);
+  }
 
 }
