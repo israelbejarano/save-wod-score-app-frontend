@@ -1,45 +1,75 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { AtletasService } from '../../services/atletas.service';
 import { RecordsService } from '../../services/records.service';
-import { IGrupoRecords } from '../../models/interfaces/grupo.records';
-import { ITipoRecord } from '../../models/interfaces/tipo.record';
-import { RecordCreateData } from '../../models/classes/record.create.data';
+import { MensajesService } from '../../services/mensajes.service';
+import { Record } from '../../models/classes/api.classes';
+import { IGrupoRecords, IRecord, ITipoRecord, IAtleta } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-new-record',
   templateUrl: './new-record.component.html',
   styleUrls: ['./new-record.component.scss'],
 })
-export class NewRecordComponent implements OnInit {
+export class NewRecordComponent implements OnInit, OnDestroy {
+
+  private atleta: IAtleta;
 
   gruposRecords: IGrupoRecords[];
   tiposRecords: ITipoRecord[] = [];
 
-  modeloRecord: RecordCreateData = new RecordCreateData();
+  modeloRecord: Record = new Record();
   tiempo = '00:00:00';
   fRealizacion: string;
 
   puedeGuardarRecord = false;
 
+  createRecordSubscription: Subscription;
+
   constructor(private modalController: ModalController,
-              private recordsService: RecordsService) { }
+              private atletasService: AtletasService,
+              private recordsService: RecordsService,
+              private mensajesService: MensajesService) { }
+
+
+  ngOnDestroy(): void {
+    if (this.createRecordSubscription) {
+      this.recordsService.createRecordEvent.unsubscribe();
+    }
+  }
 
   ngOnInit() {
     this.gruposRecords = this.recordsService.getGruposRecords();
     // console.log('gruposRecords: ', this.gruposRecords);
     this.modeloRecord.rm = true;
+    this.atleta = this.atletasService.getAtletaData();
+    this.createRecordSubscription = this.recordsService.createRecordEvent.subscribe((records: IRecord[]) => {
+      console.log('subscrition a record: ', records);
+      const toastMms = 'Record creado con éxito';
+      this.mensajesService.showBottomToast(toastMms, 2000);
+      setTimeout(() => {
+        this.modeloRecord = new Record();
+        this.fRealizacion = '';
+        this.modeloRecord.rm = true;
+      }, 200);
+    });
   }
 
   getTiposEjercicios() {
     // console.log('modelo grupo record: ', this.gruposRecordsModel);
-    this.tiposRecords = this.recordsService.getTiposRecordsByGrupoRecord(this.modeloRecord.gruposRecordsModel);
+    if (this.modeloRecord.gruposRecordsModel) {
+      this.tiposRecords = this.recordsService.getTiposRecordsByGrupoRecord(this.modeloRecord.gruposRecordsModel);
+    }
   }
 
   guardar() {
+    this.modeloRecord.atleta = this.atleta;
     this.modeloRecord.tiempo = this.tiempo;
     this.modeloRecord.fRealizacion = new Date(this.fRealizacion);
-    console.log('modelo: ', this.modeloRecord);
-    // TODO: llamar al servicio que crea el record
+    // console.log('modelo: ', this.modeloRecord);
+    this.recordsService.createRecord(this.modeloRecord);
+    // this.modeloRecord = new Record();
     // this.salir();
   }
 
@@ -48,6 +78,7 @@ export class NewRecordComponent implements OnInit {
   }
 
   guardarRecord(varAValidar) {
+    console.log('var a validar:', varAValidar);
     if (varAValidar) {
       this.puedeGuardarRecord = true;
     } else {

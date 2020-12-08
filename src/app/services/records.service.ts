@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { IGrupoRecords } from '../models/interfaces/grupo.records';
-import { ITipoRecord } from '../models/interfaces/tipo.record';
+import { Injectable, EventEmitter } from '@angular/core';
+import { IGrupoRecords, ITipoRecord, IRecord } from '../models/interfaces/api.interfaces';
+import { Record } from '../models/classes/api.classes';
 
 @Injectable({
   providedIn: 'root'
@@ -422,6 +422,11 @@ export class RecordsService {
     }
   ];
 
+  private records: IRecord[] = [];
+  private recordId = 1;
+
+  createRecordEvent = new EventEmitter();
+
   constructor() { }
 
   public getGruposRecords(): IGrupoRecords[] {
@@ -438,5 +443,13 @@ export class RecordsService {
     return tiposRecordsOfGruposRecords;
   }
 
-  // TODO: crear servicio que crea el record
+  public createRecord(nuevoRecord: Record) {
+    let newRecord: Record = new Record();
+    newRecord = nuevoRecord;
+    newRecord.id = this.recordId;
+    this.records.push(newRecord);
+    this.createRecordEvent.emit(this.records);
+    ++this.recordId;
+
+  }
 }
