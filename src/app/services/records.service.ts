@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { IGrupoRecords, ITipoRecord, IRecord } from '../models/interfaces/api.interfaces';
+import { IGrupoRecords, ITipoRecord, IRecord, IAtleta } from '../models/interfaces/api.interfaces';
 import { Record } from '../models/classes/api.classes';
 
 @Injectable({
@@ -607,6 +607,7 @@ export class RecordsService {
   private recordId = 7;
 
   createRecordEvent = new EventEmitter();
+  listadoRecordsEvent = new EventEmitter();
 
   constructor() { }
 
@@ -622,6 +623,16 @@ export class RecordsService {
       }
     });
     return tiposRecordsOfGruposRecords;
+  }
+
+  public getListadoRecordOfAtleta(atleta: IAtleta) {
+    const recordsAtleta: IRecord[] = [];
+    this.records.forEach((record: IRecord) => {
+      if (record.atleta.id === atleta.id) {
+        recordsAtleta.push(record);
+      }
+    });
+    this.listadoRecordsEvent.emit(recordsAtleta);
   }
 
   public createRecord(nuevoRecord: Record) {
