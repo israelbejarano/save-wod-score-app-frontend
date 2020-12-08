@@ -422,8 +422,189 @@ export class RecordsService {
     }
   ];
 
-  private records: IRecord[] = [];
-  private recordId = 1;
+  private records: IRecord[] = [
+    {
+      id: 1,
+      gruposRecordsModel: {
+        id: 1,
+        nombre: 'Fuerza'
+      },
+      tipoRecordModel: {
+        id: 1,
+        nombre: 'Peso muerto',
+        idGrupoRecord: 1
+      },
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      kilos: 200,
+      rm: true,
+      pr: true,
+      fRealizacion: new Date('2020-12-08'),
+      repeticiones: null,
+      chaleco: null,
+      tiempo: null,
+      observaciones: null
+    },
+    {
+      id: 2,
+      gruposRecordsModel: {
+        id: 3,
+        nombre: 'Gimnásticos'
+      },
+      tipoRecordModel: {
+        id: 29,
+        nombre: 'Butterfly pull ups',
+        idGrupoRecord: 3
+      },
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      kilos: null,
+      rm: true,
+      pr: null,
+      fRealizacion: new Date('2020-10-20'),
+      repeticiones: 50,
+      chaleco: null,
+      tiempo: null,
+      observaciones: 'prueba observaciones'
+    },
+    {
+      id: 3,
+      gruposRecordsModel: {
+        id: 2,
+        nombre: 'Halterofilia'
+      },
+      tipoRecordModel: {
+        id: 10,
+        nombre: 'Snatch',
+        idGrupoRecord: 2
+      },
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      kilos: 95.5,
+      rm: true,
+      pr: true,
+      fRealizacion: new Date('2020-08-16'),
+      repeticiones: null,
+      chaleco: null,
+      tiempo: null,
+      observaciones: 'Metí este snatch después de seguir el mesociclo.'
+    },
+    {
+      id: 4,
+      gruposRecordsModel: {
+        id: 5,
+        nombre: 'Máq. Ergómetras'
+      },
+      tipoRecordModel: {
+        id: 65,
+        nombre: '1500m row',
+        idGrupoRecord: 5,
+      },
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      kilos: null,
+      rm: true,
+      pr: true,
+      fRealizacion: new Date('2020-03-05'),
+      repeticiones: null,
+      chaleco: null,
+      tiempo: '00:05:13',
+      observaciones: null
+    },
+    {
+      id: 5,
+      gruposRecordsModel: {
+        id: 4,
+        nombre: 'CF Benchmarks'
+      },
+      tipoRecordModel: {
+        id: 62,
+        nombre: 'Fran',
+        idGrupoRecord: 4
+      },
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      kilos: null,
+      rm: true,
+      pr: null,
+      fRealizacion: new Date('2020-07-12'),
+      repeticiones: null,
+      chaleco: null,
+      tiempo: '00:02:05',
+      observaciones: 'Ejemplo de Fran realizado por un pro'
+    },
+    {
+      id: 6,
+      gruposRecordsModel: {
+        id: 6,
+        nombre: 'Carrera'
+      },
+      tipoRecordModel: {
+        id: 74,
+        nombre: '400m run',
+        idGrupoRecord: 6,
+      },
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      kilos: null,
+      rm: true,
+      pr: true,
+      fRealizacion: new Date('2020-09-26'),
+      repeticiones: null,
+      chaleco: null,
+      tiempo: '00:01:15',
+      observaciones: null
+    }
+  ];
+  private recordId = 7;
 
   createRecordEvent = new EventEmitter();
 
