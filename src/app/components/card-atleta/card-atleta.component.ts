@@ -29,7 +29,7 @@ export class CardAtletaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.atleta = this.atletasService.getAtletaData();
-    console.log(this.atleta);
+    // console.log(this.atleta);
     this.updateAtletaSubscription = this.atletasService.updateAtletaEvent.subscribe((atletaUpdated: IAtleta) => {
       // console.log('subscribe del update: ', atletaUpdated);
       this.atleta = atletaUpdated;
