@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { IAtleta } from '../models/interfaces/api.interfaces';
+import { IAtleta, ISugerencia } from '../models/interfaces/api.interfaces';
 import { AtletaUpdateData, Sugerencia } from '../models/classes/api.classes';
 
 @Injectable({
@@ -18,7 +18,8 @@ export class AtletasService {
     sexo: 'M'
   };
 
-  private sugerencias: Sugerencia[] = [];
+  private sugerencias: ISugerencia[] = [];
+  private idSugerencia = 1;
 
   updateAtletaEvent = new EventEmitter();
   createSugerenciaEvent = new EventEmitter();
@@ -43,7 +44,11 @@ export class AtletasService {
   }
 
   public crearSugerencia(sugerencia: Sugerencia) {
-    this.sugerencias.push(sugerencia);
-    this.createSugerenciaEvent.emit();
+    let newSugerencia: Sugerencia = new Sugerencia();
+    newSugerencia = sugerencia;
+    newSugerencia.id = this.idSugerencia;
+    this.sugerencias.push(newSugerencia);
+    this.createSugerenciaEvent.emit(this.sugerencias);
+    ++this.idSugerencia;
   }
 }

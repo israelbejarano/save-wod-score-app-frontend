@@ -4,6 +4,6 @@ import { IAtleta } from '../interfaces/atleta';
 export class Sugerencia implements ISugerencia {
     id: number;
     atleta: IAtleta;
-    sugerencia: string;
+    mms: string;
 
 }

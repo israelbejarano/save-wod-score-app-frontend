@@ -1,28 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { MensajesService } from '../../services/mensajes.service';
+import { AtletasService } from '../../services/atletas.service';
+import { Sugerencia } from '../../models/classes/api.classes';
+import { IAtleta, ISugerencia } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-buzon-sugerencias',
   templateUrl: './buzon-sugerencias.component.html',
   styleUrls: ['./buzon-sugerencias.component.scss'],
 })
-export class BuzonSugerenciasComponent implements OnInit {
+export class BuzonSugerenciasComponent implements OnInit, OnDestroy {
 
-  sugerencia: string;
+  atleta: IAtleta;
+  mms: string;
 
-  constructor(private mensajesService: MensajesService) { }
+  sugerenciaCreadaSubscription: Subscription;
 
-  ngOnInit() {}
+  constructor(private mensajesService: MensajesService,
+              private atletasService: AtletasService) { }
+
+
+  ngOnDestroy(): void {
+    if (this.sugerenciaCreadaSubscription) {
+      this.atletasService.createSugerenciaEvent.unsubscribe();
+    }
+  }
+
+  ngOnInit() {
+    this.atleta = this.atletasService.getAtletaData();
+    this.sugerenciaCreadaSubscription = this.atletasService.createSugerenciaEvent.subscribe((sugerencias: ISugerencia[]) => {
+      // console.log('sugerencias subscription: ', sugerencias);
+      const toastMms = 'sugerencia enviada con éxito';
+      this.mensajesService.showBottomToast(toastMms, 2000);
+      setTimeout(() => {
+        this.mms = '';
+      }, 200);
+    });
+  }
 
   enviar() {
-    console.log('sugerencia: ', this.sugerencia);
-    // TODO: enviar sugerencia al back cuando se envie se muestra el toast de ok o de error.
-    // de momento simulo mensaje ok a falta de implementar el back
-    const mms = 'sugerencia enviada con éxito';
-    this.mensajesService.showBottomToast(mms, 2000);
-    setTimeout(() => {
-      this.sugerencia = '';
-    }, 200);
+    const sugerencia: Sugerencia = new Sugerencia();
+    sugerencia.atleta = this.atleta;
+    sugerencia.mms = this.mms;
+    // console.log('sugerencia: ', sugerencia);
+    this.atletasService.crearSugerencia(sugerencia);
   }
 
 }
