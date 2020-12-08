@@ -6,6 +6,7 @@ import { RecordsService } from '../../services/records.service';
 import { MensajesService } from '../../services/mensajes.service';
 import { Record } from '../../models/classes/api.classes';
 import { IGrupoRecords, IRecord, ITipoRecord, IAtleta } from '../../models/interfaces/api.interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-record',
@@ -30,6 +31,7 @@ export class NewRecordComponent implements OnInit, OnDestroy {
   constructor(private modalController: ModalController,
               private atletasService: AtletasService,
               private recordsService: RecordsService,
+              private router: Router,
               private mensajesService: MensajesService) { }
 
 
@@ -69,6 +71,7 @@ export class NewRecordComponent implements OnInit, OnDestroy {
     this.modeloRecord.fRealizacion = new Date(this.fRealizacion);
     // console.log('modelo: ', this.modeloRecord);
     this.recordsService.createRecord(this.modeloRecord);
+    this.router.navigate(['main', 'listado-records']);
     this.salir();
   }
 
