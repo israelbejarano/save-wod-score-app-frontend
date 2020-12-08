@@ -1,10 +1,9 @@
-import { IGrupoRecords } from './grupo.records';
-import { ITipoRecord } from './tipo.record';
-import { IAtleta } from './atleta';
+import { IGrupoRecords, IRecord, ITipoRecord, IAtleta } from '../interfaces/api.interfaces';
 
-export interface IRecordCreateData {
+export class Record implements IRecord {
 
     id: number;
+    atleta: IAtleta;
     gruposRecordsModel: IGrupoRecords;
     tipoRecordModel: ITipoRecord;
     kilos: number;
@@ -15,5 +14,4 @@ export interface IRecordCreateData {
     pr: boolean;
     fRealizacion: Date;
     observaciones: string;
-    atleta: IAtleta;
 }

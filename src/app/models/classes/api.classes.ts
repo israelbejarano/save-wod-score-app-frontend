@@ -1,3 +1,3 @@
 export * from './atleta';
-export * from './record.create.data';
+export * from './record';
 export * from './sugerencia';
