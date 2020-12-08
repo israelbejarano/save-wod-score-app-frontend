@@ -35,7 +35,7 @@ export class NewRecordComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.createRecordSubscription) {
-      this.recordsService.createRecordEvent.unsubscribe();
+      this.createRecordSubscription.unsubscribe();
     }
   }
 
@@ -69,8 +69,7 @@ export class NewRecordComponent implements OnInit, OnDestroy {
     this.modeloRecord.fRealizacion = new Date(this.fRealizacion);
     // console.log('modelo: ', this.modeloRecord);
     this.recordsService.createRecord(this.modeloRecord);
-    // this.modeloRecord = new Record();
-    // this.salir();
+    this.salir();
   }
 
   salir() {
@@ -78,7 +77,7 @@ export class NewRecordComponent implements OnInit, OnDestroy {
   }
 
   guardarRecord(varAValidar) {
-    console.log('var a validar:', varAValidar);
+    // console.log('var a validar:', varAValidar);
     if (varAValidar) {
       this.puedeGuardarRecord = true;
     } else {
