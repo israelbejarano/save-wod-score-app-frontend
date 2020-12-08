@@ -625,14 +625,14 @@ export class RecordsService {
     return tiposRecordsOfGruposRecords;
   }
 
-  public getListadoRecordOfAtleta(atleta: IAtleta) {
+  public getListadoRecordOfAtleta(atleta: IAtleta): IRecord[] {
     const recordsAtleta: IRecord[] = [];
     this.records.forEach((record: IRecord) => {
       if (record.atleta.id === atleta.id) {
         recordsAtleta.push(record);
       }
     });
-    this.listadoRecordsEvent.emit(recordsAtleta);
+    return recordsAtleta;
   }
 
   public createRecord(nuevoRecord: Record) {
