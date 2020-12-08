@@ -23,7 +23,7 @@ export class CardAtletaComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.updateAtletaSubscription) {
-      this.atletasService.updateAtletaEvent.unsubscribe();
+      this.updateAtletaSubscription.unsubscribe();
     }
   }
 

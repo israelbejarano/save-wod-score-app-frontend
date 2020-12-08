@@ -23,7 +23,7 @@ export class BuzonSugerenciasComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.sugerenciaCreadaSubscription) {
-      this.atletasService.createSugerenciaEvent.unsubscribe();
+      this.sugerenciaCreadaSubscription.unsubscribe();
     }
   }
 
