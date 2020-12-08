@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { AtletasService } from 'src/app/services/atletas.service';
-import { IAtleta } from '../../models/interfaces/atleta';
-import { AtletaUpdateData } from '../../models/classes/atleta.update.data';
+import { AtletasService } from '../../services/atletas.service';
+import { IAtleta } from '../../models/interfaces/api.interfaces';
+import { Atleta } from '../../models/classes/api.classes';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -14,7 +14,7 @@ export class EditarPerfilComponent implements OnInit {
   @Input() atleta: IAtleta;
 
 
-  atletaUpdateData: AtletaUpdateData = new AtletaUpdateData();
+  atletaUpdateData: Atleta = new Atleta();
   fNacAtletaUpdateData: string;
 
   constructor(private modalController: ModalController,

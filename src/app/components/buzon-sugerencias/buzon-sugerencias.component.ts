@@ -30,7 +30,7 @@ export class BuzonSugerenciasComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.atleta = this.atletasService.getAtletaData();
     this.sugerenciaCreadaSubscription = this.atletasService.createSugerenciaEvent.subscribe((sugerencias: ISugerencia[]) => {
-      // console.log('sugerencias subscription: ', sugerencias);
+      console.log('sugerencias subscription: ', sugerencias);
       const toastMms = 'sugerencia enviada con éxito';
       this.mensajesService.showBottomToast(toastMms, 2000);
       setTimeout(() => {

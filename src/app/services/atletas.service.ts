@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { IAtleta, ISugerencia } from '../models/interfaces/api.interfaces';
-import { AtletaUpdateData, Sugerencia } from '../models/classes/api.classes';
+import { Atleta, Sugerencia } from '../models/classes/api.classes';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class AtletasService {
     return this.atletaPrueba;
   }
 
-  public updateAtleta(atletaToUpdate: AtletaUpdateData) {
+  public updateAtleta(atletaToUpdate: Atleta) {
     if (atletaToUpdate.id === this.atletaPrueba.id) {
       this.atletaPrueba.nombre = atletaToUpdate.nombre;
       this.atletaPrueba.email = atletaToUpdate.email;

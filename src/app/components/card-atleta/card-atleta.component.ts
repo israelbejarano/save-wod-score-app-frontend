@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
-import { IAtleta } from '../../models/interfaces/atleta';
-import { AtletasService } from '../../services/atletas.service';
 import { Subscription } from 'rxjs';
+import { AtletasService } from '../../services/atletas.service';
 import { MensajesService } from '../../services/mensajes.service';
+import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
+import { IAtleta } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-card-atleta',
