@@ -18,4 +18,11 @@ export class Tab2Page {
     return await modal.present();
   }
 
+  async nuevoWod() {
+    const modal = await this.modalController.create({
+      component: NewRecordComponent,
+    });
+    return await modal.present();
+  }
+
 }
