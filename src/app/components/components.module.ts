@@ -12,6 +12,8 @@ import { WodCardComponent } from './wod-card/wod-card.component';
 import { NewRecordComponent } from './new-record/new-record.component';
 import { RecordsListComponent } from './records-list/records-list.component';
 import { RecordCardComponent } from './record-card/record-card.component';
+import { SharedModule } from './shared/shared.module';
+import { NewWodComponent } from './new-wod/new-wod.component';
 
 
 
@@ -24,13 +26,15 @@ import { RecordCardComponent } from './record-card/record-card.component';
     WodCardComponent,
     NewRecordComponent,
     RecordsListComponent,
-    RecordCardComponent
+    RecordCardComponent,
+    NewWodComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
     TranslateModule,
+    SharedModule
   ],
   exports: [
     CardAtletaComponent,
