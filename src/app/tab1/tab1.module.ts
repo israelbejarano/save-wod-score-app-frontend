@@ -6,6 +6,7 @@ import { Tab1Page } from './tab1.page';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ComponentsModule } from '../components/components.module';
+import { SharedModule } from '../components/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { ComponentsModule } from '../components/components.module';
     CommonModule,
     FormsModule,
     ComponentsModule,
+    SharedModule,
     Tab1PageRoutingModule
   ],
   declarations: [Tab1Page]
