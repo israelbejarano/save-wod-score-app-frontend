@@ -1,3 +1,34 @@
-<p>
-  new-wod works!
-</p>
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>Nuevo Wod</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="salir()" fill="clear">Salir</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">F. Realización</ion-label>
+                <ion-datetime (ionChange)="guardarWod(fRealizacion)" display-format="DD/MM/YYYY" [(ngModel)]="fRealizacion" cancelText="salir" doneText="Aceptar"></ion-datetime>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">WOD</ion-label>
+                <ion-textarea [(ngModel)]="modeloWod.wod" class="custom-text-area" placeholder="Anota el WOD."></ion-textarea>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">Observaciones</ion-label>
+                <ion-textarea [(ngModel)]="modeloWod.observaciones" class="custom-text-area" placeholder="Anota lo que consideres. Opcional"></ion-textarea>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button [disabled]="!puedeGuardarWod" (click)="guardar()" expand="block" fill="clear">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        guardar
+    </ion-button>
+</ion-content>
