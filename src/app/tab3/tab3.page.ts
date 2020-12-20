@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AtletasService } from '../services/atletas.service';
+import { AtletasService } from '../services/api.services';
 import { IAtleta } from '../models/interfaces/api.interfaces';
 
 @Component({
