@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { AtletasService, MensajesService, RecordsService } from './api.services';
+import { AtletasService, MensajesService, RecordsService, WodsService } from './api.services';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { AtletasService, MensajesService, RecordsService } from './api.services'
   providers: [
     AtletasService,
     MensajesService,
-    RecordsService
+    RecordsService,
+    WodsService
   ]
 })
 export class ServiceModule { }
