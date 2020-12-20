@@ -12,6 +12,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ServiceModule } from './services/service.module';
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
+    ServiceModule,
+    SharedModule,
+    // HttpClientModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
