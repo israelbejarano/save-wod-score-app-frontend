@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { IAtleta } from '../../models/interfaces/api.interfaces';
+import { Wod } from '../../models/classes/api.classes';
+import { AtletasService } from '../../services/atletas.service';
 
 @Component({
   selector: 'app-new-wod',
@@ -8,16 +11,23 @@ import { ModalController } from '@ionic/angular';
 })
 export class NewWodComponent implements OnInit {
 
-  puedeGuardarWod = true;
+  private atleta: IAtleta;
+
+  modeloWod: Wod = new Wod();
   fRealizacion: string;
-  modeloWod: any; // TODO: crear clase e interfaz Wod
 
-  constructor(private modalController: ModalController) { }
+  puedeGuardarWod = true;
 
-  ngOnInit() {}
+  constructor(private modalController: ModalController,
+              private atletasService: AtletasService) { }
+
+  ngOnInit() {
+    this.atleta = this.atletasService.getAtletaData();
+  }
 
   guardar() {
-
+    this.modeloWod.atleta = this.atleta;
+    console.log('modeloWod: ', this.modeloWod);
     // this.salir();
   }
 
