@@ -1,4 +1,103 @@
 {
+    "components": {
+        "buzonSugerencias": {
+            "btnEnviar": "enviar",
+            "placeholder": "Escribe una sugerencia (opcional)"
+        },
+        "cardAtleta": {
+            "btnEditarPerfil": "Editar perfil",
+            "labelAltura": "Altura: {{altura}}cms",
+            "labelPeso": "Peso: {{peso}}kg",
+            "labelFNacimiento": "F. Nacimiento: "
+        },
+        "editarPerfil": {
+            "titulo": "Editar perfil",
+            "btnSalir": "Salir",
+            "labelNombre": "Nombre",
+            "labelEmail": "Email",
+            "labelFNacimiento": "F. Nacimiento",
+            "labelAltura": "Altura",
+            "labelPeso": "Peso",
+            "labelSexo": "Sexo",
+            "btnGuardar": "Guardar",
+            "selectorSexo": {
+                "placeholder": "Seleccione uno",
+                "cancelText": "Salir",
+                "okText": "Aceptar",
+                "optNinguno": "Ninguno",
+                "optFemenino": "Femenino",
+                "optMasculino": "Masculino"
+            },
+            "dateTimeFNacimiento": {
+                "cancelText": "Salir",
+                "doneText": "Aceptar"
+            }
+        },
+        "newRecord": {
+            "titulo": "Nuevo Record",
+            "btnSalir": "Salir",
+            "grupoRecords": {
+                "labelGrupoRecords": "Grupos de records",
+                "placeholder": "Seleccione un grupo de records",
+                "cancelText": "Cancelar",
+                "doneText": "Aceptar"
+            },
+            "tiposRecord": {
+                "labelTipoRecord": "Ejercicio",
+                "placeholder": "Seleccione un ejercicio",
+                "cancelText": "Cancelar",
+                "doneText": "Aceptar"
+            },
+            "kilos": {
+                "labelKilos": "kilos",
+                "placeholder": "Introduce los kilos levantados"
+            },
+            "repeticiones": {
+                "labelRepeticiones": "Repeticiones",
+                "placeholder": "Introduce el nº de repeticiones"
+            },
+            "labelChaleco": "Chaleco lastrado",
+            "dateTimeTiempo": {
+                "labelTiempo": "Tiempo",
+                "cancelText": "Salir",
+                "doneText": "Aceptar"
+            },
+            "labelRM": "RM",
+            "labelPR": "PR",
+            "dateTimeFRealizacion": {
+                "labelFecha": "F. Realización",
+                "cancelText": "Salir",
+                "doneText": "Aceptar"
+            },
+            "observaciones": {
+                "labelObs": "Observaciones",
+                "placeholder": "Anota lo que consideres. Opcional"
+            },
+            "btnGuardar": "Guardar"
+        },
+        "newWod": {
+            "titulo": "Nuevo WOD",
+            "btnSalir": "Salir",
+            "dateTimeFRealizacion": {
+                "labelFecha": "F. Realización",
+                "cancelText": "Salir",
+                "doneText": "Aceptar"
+            },
+            "wod": {
+                "labelWod": "WOD",
+                "placeholder": "Anota el WOD."
+            },
+            "resultado": {
+                "labelResultado": "Resultado",
+                "placeholder": "Introduce el resultado del wod"
+            },
+            "observaciones": {
+                "labelObs": "Observaciones",
+                "placeholder": "Anota lo que consideres. Opcional"
+            },
+            "btnGuardar": "Guardar"
+        }
+    },
     "inicio": {
         "header": {
             "titulo": "Tus entrenamientos"
@@ -16,5 +115,5 @@
             "titulo": "Nombre usuario"
         }
     },
-    "prueba": "hola"
+    "footer": "Desarrollado por Israel Bejarano"
 }

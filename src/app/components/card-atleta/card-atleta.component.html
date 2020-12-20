@@ -20,15 +20,15 @@
     <ion-card-content>
         <ion-item>
             <ion-icon name="body-outline"></ion-icon>
-            <ion-label class="perfilLabel">Altura: {{atleta.altura}}cms</ion-label>
-            <ion-label class="perfilLabel">Peso: {{atleta.peso}}kg</ion-label>
+            <ion-label class="perfilLabel">{{'components.cardAtleta.labelAltura' | translate: {'altura': atleta.altura} }}</ion-label>
+            <ion-label class="perfilLabel">{{'components.cardAtleta.labelPeso' | translate: {'peso': atleta.peso} }}</ion-label>
             <ion-icon *ngIf="atleta.sexo === ''" slot="end" name="male-female-outline"></ion-icon>
             <ion-icon *ngIf="atleta.sexo === 'M'" slot="end" name="male-outline"></ion-icon>
             <ion-icon *ngIf="atleta.sexo === 'F'" slot="end" name="female-outline"></ion-icon>
         </ion-item>
         <ion-item>
             <ion-icon name="calendar-clear-outline"></ion-icon>
-            <ion-label class="perfilLabel">F. Nacimiento: {{atleta.fNacimiento | date : 'dd/MM/yyyy'}}</ion-label>
+            <ion-label class="perfilLabel">{{'components.cardAtleta.labelFNacimiento' | translate}} {{atleta.fNacimiento | date : 'dd/MM/yyyy'}}</ion-label>
         </ion-item>
     </ion-card-content>
 </ion-card>

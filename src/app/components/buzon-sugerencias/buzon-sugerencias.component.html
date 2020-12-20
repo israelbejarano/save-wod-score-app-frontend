@@ -1,5 +1,5 @@
-<ion-textarea [(ngModel)]="mms" class="textAreaClass" placeholder="escribe una sugerencia"></ion-textarea>
+<ion-textarea [(ngModel)]="mms" class="textAreaClass" placeholder="{{'components.buzonSugerencias.placeholder' | translate}}"></ion-textarea>
 <ion-button (click)="enviar()" fill="clear" expand="block">
     <ion-icon name="send-outline"></ion-icon>
-    <ion-label class="botonLabel">enviar</ion-label>
+    <ion-label class="botonLabel" translate>{{'components.buzonSugerencias.btnEnviar'}}</ion-label>
 </ion-button>

@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-        <ion-title>Nuevo Record</ion-title>
+        <ion-title translate>{{'components.newRecord.titulo'}}</ion-title>
         <ion-buttons slot="end">
-            <ion-button (click)="salir()" fill="clear">Salir</ion-button>
+            <ion-button (click)="salir()" fill="clear" translate>{{'components.newRecord.btnSalir'}}</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -10,75 +10,75 @@
     <ion-grid fixed>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">Grupos de records</ion-label>
-                <ion-select [(ngModel)]="modeloRecord.gruposRecordsModel" (ionChange)="getTiposEjercicios()" placeholder="Seleccione un grupo de records" cancelText="cancelar" okText="aceptar">
+                <ion-label position="floating" translate>{{'components.newRecord.grupoRecords.labelGrupoRecords'}}</ion-label>
+                <ion-select [(ngModel)]="modeloRecord.gruposRecordsModel" (ionChange)="getTiposEjercicios()" placeholder="{{'components.newRecord.grupoRecords.placeholder' | translate}}" cancelText="{{'components.newRecord.grupoRecords.cancelText' | translate}}" okText="{{'components.newRecord.grupoRecords.doneText' | translate}}">
                     <ion-select-option [value]="grupoRecord" *ngFor="let grupoRecord of gruposRecords">{{grupoRecord.nombre}}</ion-select-option>
                 </ion-select>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">Ejercicio</ion-label>
-                <ion-select [disabled]="tiposRecords.length <= 0" [(ngModel)]="modeloRecord.tipoRecordModel" placeholder="Seleccione un ejercicio" cancelText="cancelar" okText="aceptar">
+                <ion-label position="floating" translate>{{'components.newRecord.tiposRecord.labelTipoRecord'}}</ion-label>
+                <ion-select [disabled]="tiposRecords.length <= 0" [(ngModel)]="modeloRecord.tipoRecordModel" placeholder="{{'components.newRecord.tiposRecord.placeholder' | translate}}" cancelText="{{'components.newRecord.tiposRecord.cancelText' | translate}}" okText="{{'components.newRecord.tiposRecord.doneText' | translate}}">
                     <ion-select-option [value]="tipoRecord" *ngFor="let tipoRecord of tiposRecords">{{tipoRecord.nombre}}</ion-select-option>
                 </ion-select>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">Kilos</ion-label>
-                <ion-input (ionChange)="guardarRecord(modeloRecord.kilos)" [(ngModel)]="modeloRecord.kilos" type="number" placeholder="Introduce los kilos levantados"></ion-input>
+                <ion-label position="floating" translate>{{'components.newRecord.kilos.labelKilos'}}</ion-label>
+                <ion-input (ionChange)="guardarRecord(modeloRecord.kilos)" [(ngModel)]="modeloRecord.kilos" type="number" placeholder="{{'components.newRecord.kilos.placeholder' | translate}}"></ion-input>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">Repeticiones</ion-label>
-                <ion-input (ionChange)="guardarRecord(modeloRecord.repeticiones)" [(ngModel)]="modeloRecord.repeticiones" type="number" placeholder="Introduce el nº de repeticiones"></ion-input>
+                <ion-label position="floating" translate>{{'components.newRecord.repeticiones.labelRepeticiones'}}</ion-label>
+                <ion-input (ionChange)="guardarRecord(modeloRecord.repeticiones)" [(ngModel)]="modeloRecord.repeticiones" type="number" placeholder="{{'components.newRecord.repeticiones.placeholder' | translate}}"></ion-input>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
                 <ion-item lines="none">
-                    <ion-label>Chaleco lastrado</ion-label>
+                    <ion-label translate>{{'components.newRecord.labelChaleco'}}</ion-label>
                     <ion-checkbox [(ngModel)]="modeloRecord.chaleco" slot="end" class="chalecoCustomCheck"></ion-checkbox>
                 </ion-item>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">Tiempo</ion-label>
-                <ion-datetime display-format="HH:mm:ss" [(ngModel)]="tiempo" cancelText="salir" doneText="Aceptar"></ion-datetime>
+                <ion-label position="floating" translate>{{'components.newRecord.dateTimeTiempo.labelTiempo'}}</ion-label>
+                <ion-datetime display-format="HH:mm:ss" [(ngModel)]="tiempo" cancelText="{{'components.newRecord.dateTimeTiempo.cancelText' | translate}}" doneText="{{'components.newRecord.dateTimeTiempo.doneText' | translate}}"></ion-datetime>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="6">
                 <ion-item lines="none" class="customItem">
-                    <ion-label>RM</ion-label>
+                    <ion-label translate>{{'components.newRecord.labelRM'}}</ion-label>
                     <ion-checkbox [(ngModel)]="modeloRecord.rm" slot="end" class="RmPrCustomCheck"></ion-checkbox>
                 </ion-item>
             </ion-col>
             <ion-col size="6">
                 <ion-item lines="none" class="customItem">
-                    <ion-label>PR</ion-label>
+                    <ion-label translate>{{'components.newRecord.labelPR'}}</ion-label>
                     <ion-checkbox [(ngModel)]="modeloRecord.pr" slot="end" class="RmPrCustomCheck"></ion-checkbox>
                 </ion-item>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">F. Realización</ion-label>
-                <ion-datetime (ionChange)="guardarRecord(fRealizacion)" display-format="DD/MM/YYYY" [(ngModel)]="fRealizacion" cancelText="salir" doneText="Aceptar"></ion-datetime>
+                <ion-label position="floating" translate>{{'components.newRecord.dateTimeFRealizacion.labelFecha'}}</ion-label>
+                <ion-datetime (ionChange)="guardarRecord(fRealizacion)" display-format="DD/MM/YYYY" [(ngModel)]="fRealizacion" cancelText="{{'components.newRecord.dateTimeFRealizacion.cancelText' | translate}}" doneText="{{'components.newRecord.dateTimeFRealizacion.doneText' | translate}}"></ion-datetime>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">Observaciones</ion-label>
-                <ion-textarea [(ngModel)]="modeloRecord.observaciones" placeholder="Anota lo que consideres. Opcional"></ion-textarea>
+                <ion-label position="floating" translate>{{'components.newRecord.observaciones.labelObs'}}</ion-label>
+                <ion-textarea [(ngModel)]="modeloRecord.observaciones" placeholder="{{'components.newRecord.observaciones.placeholder' | translate}}"></ion-textarea>
             </ion-col>
         </ion-row>
     </ion-grid>
     <ion-button [disabled]="!puedeGuardarRecord" (click)="guardar()" expand="block" fill="clear">
         <ion-icon name="save-outline" slot="start"></ion-icon>
-        guardar
+        {{'components.newRecord.btnGuardar' | translate}}
     </ion-button>
 </ion-content>
