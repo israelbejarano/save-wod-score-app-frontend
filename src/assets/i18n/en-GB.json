@@ -1,0 +1,20 @@
+{
+    "inicio": {
+        "header": {
+            "titulo": "Your wods"
+        }
+    },
+    "nuevo": {
+        "header": {
+            "titulo": "New Wod"
+        },
+        "recordBoton": "New record",
+        "wodboton": " new wod"
+    },
+    "perfil": {
+        "header": {
+            "titulo": "User name"
+        }
+    },
+    "prueba": "hola"
+}

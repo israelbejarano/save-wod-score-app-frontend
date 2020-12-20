@@ -6,14 +6,20 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceModule } from './services/service.module';
 import { SharedModule } from './components/shared/shared.module';
+import { LanguagesInfo } from '../assets/i18n/languages.info';
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +30,6 @@ import { SharedModule } from './components/shared/shared.module';
     AppRoutingModule,
     ServiceModule,
     SharedModule,
-    // HttpClientModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -38,10 +43,13 @@ import { SharedModule } from './components/shared/shared.module';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
+  exports: [TranslateModule],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export class AppModule {
+  constructor(
+    private translateService: TranslateService,
+  ) {
+    LanguagesInfo.initTranslateService(this.translateService);
+  }
 }
