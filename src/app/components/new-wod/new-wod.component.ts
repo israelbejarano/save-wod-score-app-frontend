@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AtletasService, WodsService } from '../../services/api.services';
+import { AtletasService, WodsService, MensajesService } from '../../services/api.services';
 import { Wod } from '../../models/classes/api.classes';
 import { IAtleta, IWod } from '../../models/interfaces/api.interfaces';
 
@@ -25,6 +25,7 @@ export class NewWodComponent implements OnInit, OnDestroy {
   constructor(private modalController: ModalController,
               private atletasService: AtletasService,
               private wodsService: WodsService,
+              private mensajesService: MensajesService,
               private router: Router) { }
 
 
@@ -38,6 +39,12 @@ export class NewWodComponent implements OnInit, OnDestroy {
     this.atleta = this.atletasService.getAtletaData();
     this.createWodSubscription = this.wodsService.createWodEvent.subscribe((wods: IWod[]) => {
       console.log('wods creados: ', wods);
+      const toastMms = 'Wod creado con éxito';
+      this.mensajesService.showBottomToast(toastMms, 2000);
+      setTimeout(() => {
+        this.modeloWod = new Wod();
+        this.fRealizacion = '';
+      }, 200);
     });
   }
 
@@ -46,8 +53,8 @@ export class NewWodComponent implements OnInit, OnDestroy {
     this.modeloWod.fRealizacion = new Date(this.fRealizacion);
     console.log('modeloWod: ', this.modeloWod);
     this.wodsService.createWod(this.modeloWod);
-    // this.router.navigate(['main', 'listado-records']);
-    // this.salir();
+    this.router.navigate(['main', 'listado-records']);
+    this.salir();
   }
 
   guardarWod(varAValidar) {
