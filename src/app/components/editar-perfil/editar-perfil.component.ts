@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { AtletasService } from '../../services/atletas.service';
+import { AtletasService } from '../../services/api.services';
 import { IAtleta } from '../../models/interfaces/api.interfaces';
 import { Atleta } from '../../models/classes/api.classes';
 

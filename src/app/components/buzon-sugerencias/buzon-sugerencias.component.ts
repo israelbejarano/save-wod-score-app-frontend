@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MensajesService } from '../../services/mensajes.service';
-import { AtletasService } from '../../services/atletas.service';
+import { MensajesService, AtletasService } from '../../services/api.services';
 import { Sugerencia } from '../../models/classes/api.classes';
 import { IAtleta, ISugerencia } from '../../models/interfaces/api.interfaces';
 

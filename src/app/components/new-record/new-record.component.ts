@@ -1,12 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AtletasService } from '../../services/atletas.service';
-import { RecordsService } from '../../services/records.service';
-import { MensajesService } from '../../services/mensajes.service';
+import { AtletasService, RecordsService, MensajesService} from '../../services/api.services';
 import { Record } from '../../models/classes/api.classes';
 import { IGrupoRecords, IRecord, ITipoRecord, IAtleta } from '../../models/interfaces/api.interfaces';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-record',

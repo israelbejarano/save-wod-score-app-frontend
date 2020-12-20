@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { IAtleta } from '../../models/interfaces/api.interfaces';
+import { AtletasService } from '../../services/api.services';
 import { Wod } from '../../models/classes/api.classes';
-import { AtletasService } from '../../services/atletas.service';
+import { IAtleta } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-new-wod',
