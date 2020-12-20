@@ -18,7 +18,7 @@ export class NewWodComponent implements OnInit, OnDestroy {
   modeloWod: Wod = new Wod();
   fRealizacion: string;
 
-  puedeGuardarWod = true;
+  puedeGuardarWod = true;  // TODO: hacer el enabled/disabled de guardar
 
   createWodSubscription: Subscription;
 
