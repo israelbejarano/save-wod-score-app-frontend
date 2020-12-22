@@ -1,4 +1,10 @@
 {
+    "tab1": {
+        "titulo": "Mis récords"
+    },
+    "tab2": {
+        "titulo": "Mis wods"
+    },
     "components": {
         "buzonSugerencias": {
             "btnEnviar": "enviar",
