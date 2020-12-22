@@ -18,7 +18,7 @@ export class NewWodComponent implements OnInit, OnDestroy {
   modeloWod: Wod = new Wod();
   fRealizacion: string;
 
-  puedeGuardarWod = true;  // TODO: hacer el enabled/disabled de guardar
+  puedeGuardarWod = false;
 
   createWodSubscription: Subscription;
 
@@ -62,7 +62,7 @@ export class NewWodComponent implements OnInit, OnDestroy {
     if (varAValidar) {
       this.puedeGuardarWod = true;
     } else {
-      // this.puedeGuardarWod = false;
+      this.puedeGuardarWod = false;
     }
   }
 
