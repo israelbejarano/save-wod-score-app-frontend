@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Wod } from '../models/classes/api.classes';
-import { IWod } from '../models/interfaces/api.interfaces';
+import { IWod, IAtleta } from '../models/interfaces/api.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,15 @@ export class WodsService {
     this.wods.push(newWod);
     this.createWodEvent.emit(this.wods);
     ++this.wodId;
+  }
+
+  public getListadoWodOfAtleta(atleta: IAtleta): IWod[] {
+    const wodsAtleta: IWod[] = [];
+    this.wods.forEach((wod: IWod) => {
+      if (wod.atleta.id === atleta.id) {
+        wodsAtleta.push(wod);
+      }
+    });
+    return wodsAtleta;
   }
 }
