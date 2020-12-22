@@ -7,10 +7,28 @@ import { IWod } from '../models/interfaces/api.interfaces';
 })
 export class WodsService {
 
-  createWodEvent = new EventEmitter();
+  private wods: IWod[] = [
+    {
+      id: 1,
+      atleta: {
+        id: 1,
+        altura: 179,
+        peso: 78.9,
+        nombre: 'Rich Froning Fraser',
+        email: 'ritch.the-master@email.com',
+        fNacimiento: new Date('02/02/1989'),
+        img: './assets/img/avatar-grey.png',
+        sexo: 'M'
+      },
+      fRealizacion: new Date('2020-12-08'),
+      wod: '40-30-20-10 \n box jump \n am swing @32/24kg \n 1 arm farmer carry',
+      resultado: `16' 02''`,
+      observaciones: 'Rx'
+    }
+  ];
+  private wodId = 2;
 
-  private wods: IWod[] = [];
-  private wodId = 1;
+  createWodEvent = new EventEmitter();
 
   constructor() { }
 
