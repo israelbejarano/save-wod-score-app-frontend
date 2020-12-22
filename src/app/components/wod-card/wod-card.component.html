@@ -1,3 +1,19 @@
-<p>
-  wod-card works!
-</p>
+<ion-card>
+    <ion-card-header>
+        <ion-card-title>{{wod.fRealizacion | date:'dd-MM-yyyy'}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-item>
+            <ion-label position="floating">wod:</ion-label>
+            <pre class="custom-pre">{{wod.wod}}</pre>
+        </ion-item>
+        <ion-item>
+            <ion-label>resultado: {{wod.resultado}}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">observaciones:</ion-label>
+            <pre class="custom-pre">{{wod.observaciones}}</pre>
+        </ion-item>
+    </ion-card-content>
+</ion-card>
