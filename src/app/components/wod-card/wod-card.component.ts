@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IWod } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-wod-card',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WodCardComponent implements OnInit {
 
+  @Input() wod: IWod;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('wod: ', this.wod);
+  }
 
 }

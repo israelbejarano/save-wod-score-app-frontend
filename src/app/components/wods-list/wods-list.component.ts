@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IAtleta, IWod } from '../../models/interfaces/api.interfaces';
+import { AtletasService, WodsService } from '../../services/api.services';
 
 @Component({
   selector: 'app-wods-list',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WodsListComponent implements OnInit {
 
-  constructor() { }
+  atleta: IAtleta;
+  wods: IWod[];
 
-  ngOnInit() {}
+  constructor(private atletasService: AtletasService,
+              private wodsService: WodsService) { }
+
+  ngOnInit() {
+    this.atleta = this.atletasService.getAtletaData();
+    this.wods = this.wodsService.getListadoWodOfAtleta(this.atleta);
+  }
 
 }
