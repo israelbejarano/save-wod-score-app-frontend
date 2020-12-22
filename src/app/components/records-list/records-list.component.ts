@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RecordsService } from '../../services/records.service';
 import { IAtleta, IRecord } from 'src/app/models/interfaces/api.interfaces';
-import { AtletasService } from '../../services/atletas.service';
+import { AtletasService, RecordsService } from '../../services/api.services';
 
 @Component({
   selector: 'app-records-list',
