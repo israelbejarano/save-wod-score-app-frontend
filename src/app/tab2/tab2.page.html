@@ -1,12 +1,18 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-title>
-            Crear
+            Listado de Wods
         </ion-title>
+        <ion-button slot="end" (click)="nuevoWod()" color="dark" expand="block" fill="clear" shape="round" size="large">
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-button>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <app-wods-list></app-wods-list>
+</ion-content>
+<!-- <ion-content [fullscreen]="true">
     <ion-button class="centerButtons" (click)="nuevoWod()" expand="block" fill="clear">
         <ion-icon slot="start" name="barbell-outline"></ion-icon>
         <ion-label>Nuevo WOD</ion-label>
@@ -15,4 +21,4 @@
         <ion-icon slot="start" name="trophy-outline"></ion-icon>
         <ion-label>Nuevo RM</ion-label>
     </ion-button>
-</ion-content>
+</ion-content> -->

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { NewRecordComponent } from '../components/new-record/new-record.component';
+import { NewWodComponent } from '../components/new-wod/new-wod.component';
 
 @Component({
   selector: 'app-tab2',
@@ -11,16 +11,16 @@ export class Tab2Page {
 
   constructor(private modalController: ModalController) {}
 
-  async nuevoRm() {
+  /* async nuevoRm() {
     const modal = await this.modalController.create({
       component: NewRecordComponent,
     });
     return await modal.present();
-  }
+  } */
 
   async nuevoWod() {
     const modal = await this.modalController.create({
-      component: NewRecordComponent,
+      component: NewWodComponent,
     });
     return await modal.present();
   }
