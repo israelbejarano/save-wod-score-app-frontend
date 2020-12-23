@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-opciones',
@@ -7,18 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpcionesComponent implements OnInit {
 
-  // TODO: traer los idiomas disponibles del LanguagesInfo
+  idiomasDisponibles: string[] = [];
+  idiomaSeleccionado: string;
 
-  idiomaSeleccionado = 'es-ES';  // TODO: esto hacerlo dinamico con localstorage y por defecto español
+  constructor(private translateService: TranslateService) { }
 
-  constructor() { }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.idiomaSeleccionado = this.translateService.getDefaultLang();
+    this.idiomasDisponibles = this.translateService.getLangs();
+  }
 
   salir() {}
 
   descargar() {}
 
   cambioIdioma() {}
+
+  setIdioma() {
+    this.translateService.setDefaultLang(this.idiomaSeleccionado);
+  }
 
 }

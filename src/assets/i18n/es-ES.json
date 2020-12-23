@@ -122,7 +122,11 @@
         "shared": {
             "opciones": {
                 "labelSalir": "Salir",
-                "labelDescargar": "Descargar"
+                "labelDescargar": "Descargar",
+                "idioma": {
+                    "cancelText": "Salir",
+                    "doneText": "Aceptar"
+                }
             }
         }
     },

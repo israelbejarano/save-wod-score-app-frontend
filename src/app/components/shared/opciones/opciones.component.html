@@ -9,9 +9,8 @@
     </ion-item>
     <ion-item button (click)="cambioIdioma()">
         <ion-icon name="language-outline" slot="start"></ion-icon>
-        <ion-select [(ngModel)]="idiomaSeleccionado">
-            <ion-select-option value="es-ES">es-ES</ion-select-option>
-            <ion-select-option value="en-GB">en-GB</ion-select-option>
+        <ion-select [(ngModel)]="idiomaSeleccionado" (ionChange)="setIdioma()" cancelText="{{'components.shared.opciones.idioma.cancelText' | translate}}" okText="{{'components.shared.opciones.idioma.doneText' | translate}}">
+            <ion-select-option [value]="idioma" *ngFor="let idioma of idiomasDisponibles">{{idioma}}</ion-select-option>
         </ion-select>
     </ion-item>
 </ion-list>
