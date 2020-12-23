@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreateRmWodComponent } from './create-rm-wod/create-rm-wod.component';
 import { OpcionesComponent } from './opciones/opciones.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 @NgModule({
   declarations: [
     CreateRmWodComponent,
-    OpcionesComponent
+    OpcionesComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { OpcionesComponent } from './opciones/opciones.component';
   ],
   exports: [
     CreateRmWodComponent,
-    OpcionesComponent
+    OpcionesComponent,
+    LoginComponent
   ]
 })
 export class SharedModule { }
