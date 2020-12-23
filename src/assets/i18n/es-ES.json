@@ -118,6 +118,12 @@
             "labelChaleco": "Chaleco lastrado",
             "labelObs": "Observaciones"
 
+        },
+        "shared": {
+            "opciones": {
+                "labelSalir": "Salir",
+                "labelDescargar": "Descargar"
+            }
         }
     },
     "inicio": {
