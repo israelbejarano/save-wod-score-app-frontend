@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<ion-content [fullscreen]="true">
+    <ion-grid fixed class="custom-grid">
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating">correo:</ion-label>
+                <ion-input type="email" placeholder="Introduce tu email"></ion-input>
+            </ion-col>
+            <ion-col size="12">
+                <ion-label position="floating">constraseña:</ion-label>
+                <ion-input type="password" placeholder="Introduce tu contraseña"></ion-input>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button class="custom-button" (click)="login()" expand="block" fill="clear" shape="round">
+        login
+    </ion-button>
+</ion-content>
