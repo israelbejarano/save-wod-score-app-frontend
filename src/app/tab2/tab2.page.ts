@@ -26,7 +26,7 @@ export class Tab2Page {
   }
 
   buscarWod() {
-    //TODO: abrir el componente buscador de wods
+    // TODO: abrir el componente buscador de wods
   }
 
 }
