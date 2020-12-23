@@ -18,4 +18,8 @@ export class Tab1Page {
     return await modal.present();
   }
 
+  buscarRm() {
+    // TODO: abrir buscador de rm component
+  }
+
 }

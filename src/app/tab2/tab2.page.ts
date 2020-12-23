@@ -25,4 +25,8 @@ export class Tab2Page {
     return await modal.present();
   }
 
+  buscarWod() {
+    //TODO: abrir el componente buscador de wods
+  }
+
 }
