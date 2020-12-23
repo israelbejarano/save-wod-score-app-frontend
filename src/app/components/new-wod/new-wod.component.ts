@@ -53,7 +53,7 @@ export class NewWodComponent implements OnInit, OnDestroy {
     this.modeloWod.fRealizacion = new Date(this.fRealizacion);
     console.log('modeloWod: ', this.modeloWod);
     this.wodsService.createWod(this.modeloWod);
-    this.router.navigate(['main', 'listado-records']);
+    this.router.navigate(['main', 'listado-wods']);
     this.salir();
   }
 
