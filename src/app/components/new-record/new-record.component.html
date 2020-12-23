@@ -40,7 +40,8 @@
             <ion-col size="12">
                 <ion-item lines="none">
                     <ion-label translate>{{'components.newRecord.labelChaleco'}}</ion-label>
-                    <ion-checkbox [(ngModel)]="modeloRecord.chaleco" slot="end" class="chalecoCustomCheck"></ion-checkbox>
+                    <!-- <ion-checkbox [(ngModel)]="modeloRecord.chaleco" slot="end" class="chalecoCustomCheck"></ion-checkbox> -->
+                    <ion-toggle [(ngModel)]="modeloRecord.chaleco"></ion-toggle>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -54,13 +55,15 @@
             <ion-col size="6">
                 <ion-item lines="none" class="customItem">
                     <ion-label translate>{{'components.newRecord.labelRM'}}</ion-label>
-                    <ion-checkbox [(ngModel)]="modeloRecord.rm" slot="end" class="RmPrCustomCheck"></ion-checkbox>
+                    <!-- <ion-checkbox [(ngModel)]="modeloRecord.rm" slot="end" class="RmPrCustomCheck"></ion-checkbox> -->
+                    <ion-toggle [(ngModel)]="modeloRecord.rm"></ion-toggle>
                 </ion-item>
             </ion-col>
             <ion-col size="6">
                 <ion-item lines="none" class="customItem">
                     <ion-label translate>{{'components.newRecord.labelPR'}}</ion-label>
-                    <ion-checkbox [(ngModel)]="modeloRecord.pr" slot="end" class="RmPrCustomCheck"></ion-checkbox>
+                    <!-- <ion-checkbox [(ngModel)]="modeloRecord.pr" slot="end" class="RmPrCustomCheck"></ion-checkbox> -->
+                    <ion-toggle [(ngModel)]="modeloRecord.pr"></ion-toggle>
                 </ion-item>
             </ion-col>
         </ion-row>
