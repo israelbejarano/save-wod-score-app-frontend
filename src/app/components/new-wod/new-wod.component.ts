@@ -1,17 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { AtletasService, WodsService, MensajesService } from '../../services/api.services';
+import { WodsService, AtletasService } from '../../services/api.services';
 import { Wod } from '../../models/classes/api.classes';
-import { IAtleta, IWod } from '../../models/interfaces/api.interfaces';
+import { IAtleta } from '../../models/interfaces/api.interfaces';
 
 @Component({
   selector: 'app-new-wod',
   templateUrl: './new-wod.component.html',
   styleUrls: ['./new-wod.component.scss'],
 })
-export class NewWodComponent implements OnInit, OnDestroy {
+export class NewWodComponent implements OnInit {
 
   private atleta: IAtleta;
 
@@ -20,32 +19,13 @@ export class NewWodComponent implements OnInit, OnDestroy {
 
   puedeGuardarWod = false;
 
-  createWodSubscription: Subscription;
-
   constructor(private modalController: ModalController,
-              private atletasService: AtletasService,
               private wodsService: WodsService,
-              private mensajesService: MensajesService,
+              private atletasService: AtletasService,
               private router: Router) { }
-
-
-  ngOnDestroy(): void {
-    if (this.createWodSubscription) {
-      this.createWodSubscription.unsubscribe();
-    }
-  }
 
   ngOnInit() {
     this.atleta = this.atletasService.getAtletaData();
-    this.createWodSubscription = this.wodsService.createWodEvent.subscribe((wods: IWod[]) => {
-      console.log('wods creados: ', wods);
-      const toastMms = 'Wod creado con éxito';
-      this.mensajesService.showBottomToast(toastMms, 2000);
-      setTimeout(() => {
-        this.modeloWod = new Wod();
-        this.fRealizacion = '';
-      }, 200);
-    });
   }
 
   guardar() {
