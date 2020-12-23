@@ -102,6 +102,11 @@
                 "placeholder": "Anota lo que consideres. Opcional"
             },
             "btnGuardar": "Guardar"
+        },
+        "wodCard": {
+            "labelWod": "Wod:",
+            "labelResultado": "Resultado: ",
+            "labelObs": "Observaciones"
         }
     },
     "inicio": {
