@@ -1,3 +1,39 @@
-<p>
-  record-card works!
-</p>
+<ion-card>
+    <ion-card-header>
+        <ion-card-subtitle>{{record.gruposRecordsModel.nombre}}</ion-card-subtitle>
+        <ion-card-title>{{record.tipoRecordModel.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-item>
+            <ion-label>{{'components.recordCard.labelFecha' | translate}}{{record.fRealizacion | date:'dd-MM-yyyy'}}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="record.kilos">
+            <ion-label>{{'components.recordCard.labelKilos' | translate: {'kilos': record.kilos} }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="record.repeticiones">
+            <ion-label>{{'components.recordCard.labelRepes' | translate: {'repes': record.repeticiones} }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="record.tiempo">
+            <ion-label>{{'components.recordCard.labelTiempo' | translate}} {{record.tiempo}}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label translate>{{'components.recordCard.labelRM'}}</ion-label>
+            <ion-icon *ngIf="!record.rm" name="radio-button-off-outline"></ion-icon>
+            <ion-icon *ngIf="record.rm" name="radio-button-on-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label translate>{{'components.recordCard.labelPR'}}</ion-label>
+            <ion-icon *ngIf="!record.pr" name="radio-button-off-outline"></ion-icon>
+            <ion-icon *ngIf="record.pr" name="radio-button-on-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label translate>{{'components.recordCard.labelChaleco'}}</ion-label>
+            <ion-icon *ngIf="!record.chaleco" name="radio-button-off-outline"></ion-icon>
+            <ion-icon *ngIf="record.chaleco" name="radio-button-on-outline"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="record.observaciones">
+            <ion-label position="floating" translate>{{'components.recordCard.labelObs'}}</ion-label>
+            <pre class="custom-pre">{{record.observaciones}}</pre>
+        </ion-item>
+    </ion-card-content>
+</ion-card>

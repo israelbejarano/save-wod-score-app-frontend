@@ -107,6 +107,17 @@
             "labelWod": "Wod:",
             "labelResultado": "Resultado: ",
             "labelObs": "Observaciones"
+        },
+        "recordCard": {
+            "labelFecha": "F. Realización: ",
+            "labelKilos": "kilos: {{kilos}}kg",
+            "labelRepes": "Repeticiones: {{repes}} reps",
+            "labelTiempo": "tiempo: ",
+            "labelRM": "RM",
+            "labelPR": "PR",
+            "labelChaleco": "Chaleco lastrado",
+            "labelObs": "Observaciones"
+
         }
     },
     "inicio": {
