@@ -4,12 +4,14 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreateRmWodComponent } from './create-rm-wod/create-rm-wod.component';
+import { OpcionesComponent } from './opciones/opciones.component';
 
 
 
 @NgModule({
   declarations: [
-    CreateRmWodComponent
+    CreateRmWodComponent,
+    OpcionesComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { CreateRmWodComponent } from './create-rm-wod/create-rm-wod.component';
     TranslateModule,
   ],
   exports: [
-    CreateRmWodComponent
+    CreateRmWodComponent,
+    OpcionesComponent
   ]
 })
 export class SharedModule { }
