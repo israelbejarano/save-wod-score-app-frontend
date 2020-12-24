@@ -8,12 +8,29 @@ import { ModalController } from '@ionic/angular';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private modelController: ModalController) { }
+  logoUrl = './assets/img/logo.png';
+  contadorFalloPassword = 0;
+  passwordOlvidado = false;
+  email: string;
+  password: string;
+
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {}
 
   login() {
-    this.modelController.dismiss();
+    if (this.password !== '123456aA') {
+      ++this.contadorFalloPassword;
+      this.password = '';
+    }
+    if (this.contadorFalloPassword >= 3) {
+      this.passwordOlvidado = true;
+    }
+    // this.modalController.dismiss();
   }
+
+  registrar() {}
+
+  resetPassword() {}
 
 }
