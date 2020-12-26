@@ -147,7 +147,9 @@
                 "labelPassword": "Contraseña:",
                 "placeholderPasswordA": "Introduce una contraseña",
                 "placeholderPasswordB": "Repite la contraseña",
-                "btnCrear": "Crear"
+                "btnCrear": "Crear",
+                "labelPasswordError": "La contraseña debe contener al menos 8 caracteres, mayusculas, minusculas y algún número.",
+                "labelEmailError": "El email no es válido."
             },
             "resetPassword": {
                 "labelCorreo": "Correo:",

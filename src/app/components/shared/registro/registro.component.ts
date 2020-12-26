@@ -24,17 +24,30 @@ export class RegistroComponent implements OnInit {
   crear() {
     this.showPasswordError = false;
     this.showEmailError = false;
-    if (this.passwordA.length < 7 || !/[A-Z]/.test(this.passwordA) || !/[a-z]/.test(this.passwordA) || !/\d/.test(this.passwordA)) {
-      this.showPasswordError = true;
+    const puedoCrearUsuario: boolean = this.comprobarFormulario(this.email, this.passwordA);
+    if (puedoCrearUsuario) {
+      const nuevoUsuario: Usuario = new Usuario();
+      nuevoUsuario.email = this.email;
+      nuevoUsuario.password = this.passwordA;
+      // TODO: servicio crear usuario
     }
-    if (!this.emailIsValid(this.email)) {
-      this.showEmailError = true;
-    }
-    const nuevoUsuario: Usuario = new Usuario();
   }
 
   salir() {
     this.modalController.dismiss();
+  }
+
+  private comprobarFormulario(email: string, password: string): boolean {
+    let resultado = true;
+    if (this.passwordA.length < 7 || !/[A-Z]/.test(this.passwordA) || !/[a-z]/.test(this.passwordA) || !/\d/.test(this.passwordA)) {
+      this.showPasswordError = true;
+      resultado = false;
+    }
+    if (!this.emailIsValid(this.email)) {
+      this.showEmailError = true;
+      resultado = false;
+    }
+    return resultado;
   }
 
   private emailIsValid(email: string) {
