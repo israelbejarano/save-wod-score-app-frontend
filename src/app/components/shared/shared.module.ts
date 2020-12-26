@@ -6,6 +6,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CreateRmWodComponent } from './create-rm-wod/create-rm-wod.component';
 import { OpcionesComponent } from './opciones/opciones.component';
 import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -13,7 +15,9 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     CreateRmWodComponent,
     OpcionesComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

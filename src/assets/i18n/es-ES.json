@@ -129,13 +129,23 @@
                 }
             },
             "login": {
-                "labelCorreo": "correo:",
-                "labelPassword": "contraseña:",
+                "labelCorreo": "Correo:",
+                "labelPassword": "Contraseña:",
                 "btnLogin": "login",
                 "labelRegistro": "¿No tienes cuenta? Regístrate.",
                 "labelResetPassword": "¿Has olvidado tu contraseña? Pulsa aquí.",
                 "placeholderCorreo": "Introduce tu correo",
                 "placeholderPassword": "Introduce tu contraseña"
+            },
+            "registro": {},
+            "resetPassword": {
+                "labelCorreo": "Correo:",
+                "labelPassword": "Contraseña:",
+                "placeholderPasswordA": "Introduce la nueva contraseña",
+                "placeholderPasswordB": "Repite la nueva contraseña",
+                "btnEnviar": "enviar",
+                "btnSalir": "Salir",
+                "titulo": "Reseteo Contraseña"
             }
         }
     },
