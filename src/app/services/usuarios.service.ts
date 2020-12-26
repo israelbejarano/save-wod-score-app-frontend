@@ -43,10 +43,11 @@ export class UsuariosService {
     return usuarioAbuscar;
   }
 
-  public resetearPassword(email: string, nuevoPassword: string) {
+  public resetearPassword(email: string) {
     const usuario: IUsuario = this.getUsuarioByEmail(email);
     if (usuario) {
-      usuario.password = nuevoPassword;
+      // TODO: enviar al back la orden de mandar un correo con
+      // password temporal y todo eso
       // 0 = ok
       this.nuevoPasswordEvent.emit(0);
     } else {

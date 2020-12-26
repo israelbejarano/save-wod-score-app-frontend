@@ -11,9 +11,6 @@ import { Subscription } from 'rxjs';
 export class ResetPasswordComponent implements OnInit, OnDestroy {
 
   email: string;
-  passwordA: string;
-  passwordB: string;
-  showErrorMms = false;
 
   nuevoPasswordSubscription: Subscription;
 
@@ -33,7 +30,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
       console.log('resp: ', resp);
       let mms: string;
       if (resp === 0) {
-        mms = 'Contraseña cambiada con éxito.';
+        mms = 'Se ha enviado un email al correo.';
       } else {
         mms = 'Usuario no encontrado.';
       }
@@ -51,13 +48,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   }
 
   enviar() {
-    // aunque se comprueba en el disabled comprobar si los password son igual
-    if (this.passwordA !== this.passwordB) {
-      this.showErrorMms = true;
-    }
-    // TODO: comprobar que el password tenga +6 longitud y aA
-    // para eso ver en otras apps mias la validación de password
-    this.usuariosService.resetearPassword(this.email, this.passwordA);
+    this.usuariosService.resetearPassword(this.email);
   }
 
 }
