@@ -38,9 +38,8 @@ export class RegistroComponent implements OnInit, OnDestroy {
       let mms: string;
       if (resp !== 'ok') {
         mms = resp;
-        // TODO: mandar toast de error
       } else {
-        mms = 'Usuario creado con éxito.'
+        mms = 'Usuario creado con éxito.';
       }
       setTimeout(() => {
         this.mensajesService.showBottomToast(mms, 2000);
