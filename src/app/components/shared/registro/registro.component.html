@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title translate>{{'components.shared.registro.titulo'}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="salir()" fill="clear" translate>{{'components.shared.registro.btnSalir'}}</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-grid class="custom-grid" fixed>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating" translate>{{'components.shared.registro.labelCorreo'}}</ion-label>
+                <ion-input [(ngModel)]="email" type="email" placeholder="{{'components.shared.registro.placeholderCorreo' | translate}}"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating" translate>{{'components.shared.registro.labelNombre'}}</ion-label>
+                <ion-input [(ngModel)]="nombre" type="text" placeholder="{{'components.shared.registro.placeholderNombre' | translate}}"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating" translate>{{'components.shared.registro.labelPassword'}}</ion-label>
+                <ion-input [(ngModel)]="passwordA" type="password" placeholder="{{'components.shared.registro.placeholderPasswordA' | translate}}"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <ion-label position="floating" translate>{{'components.shared.registro.labelPassword'}}</ion-label>
+                <ion-input [(ngModel)]="passwordB" type="password" placeholder="{{'components.shared.registro.placeholderPasswordB' | translate}}"></ion-input>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button [disabled]="!email || !passwordA || !passwordB || passwordA !== passwordB || !nombre" class="custom-button" (click)="crear()" expand="block" fill="clear" shape="round">
+        {{'components.shared.registro.btnCrear' | translate}}
+    </ion-button>
+</ion-content>

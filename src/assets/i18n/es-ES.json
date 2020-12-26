@@ -137,16 +137,23 @@
                 "placeholderCorreo": "Introduce tu correo",
                 "placeholderPassword": "Introduce tu contraseña"
             },
-            "registro": {},
+            "registro": {
+                "titulo": "Crear cuenta",
+                "btnSalir": "Salir",
+                "labelCorreo": "Correo:",
+                "labelNombre": "Nombre de usuario:",
+                "placeholderCorreo": "Introduce un correo",
+                "placeholderNombre": "Introduce un nombre de usuario",
+                "labelPassword": "Contraseña:",
+                "placeholderPasswordA": "Introduce una contraseña",
+                "placeholderPasswordB": "Repite la contraseña",
+                "btnCrear": "Crear"
+            },
             "resetPassword": {
                 "labelCorreo": "Correo:",
-                "labelPassword": "Contraseña:",
-                "placeholderPasswordA": "Introduce la nueva contraseña",
-                "placeholderPasswordB": "Repite la nueva contraseña",
                 "btnEnviar": "enviar",
                 "btnSalir": "Salir",
-                "titulo": "Reseteo Contraseña",
-                "labelErrorMms": "Las contraseñas no coinciden."
+                "titulo": "Reseteo Contraseña"
             }
         }
     },
