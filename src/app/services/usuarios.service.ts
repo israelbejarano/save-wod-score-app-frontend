@@ -10,7 +10,7 @@ export class UsuariosService {
 
   private usuarioPrueba: IUsuario = {
     id: 1,
-    password: '123456',
+    password: '123456aA',
     activo: true,
     premium: true,
     email: 'prueba@prueba.com',
