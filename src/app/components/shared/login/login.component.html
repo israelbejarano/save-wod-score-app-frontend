@@ -3,22 +3,22 @@
     <ion-grid fixed class="custom-grid">
         <ion-row>
             <ion-col size="12">
-                <ion-label position="floating">correo:</ion-label>
-                <ion-input [(ngModel)]="email" type="email" placeholder="Introduce tu email"></ion-input>
+                <ion-label position="floating" translate>{{'components.shared.login.labelCorreo'}}</ion-label>
+                <ion-input [(ngModel)]="email" type="email" placeholder="{{'components.shared.login.placeholderCorreo' | translate}}"></ion-input>
             </ion-col>
             <ion-col size="12">
-                <ion-label position="floating">constraseña:</ion-label>
-                <ion-input [(ngModel)]="password" type="password" placeholder="Introduce tu contraseña"></ion-input>
+                <ion-label position="floating" translate>{{'components.shared.login.labelPassword'}}</ion-label>
+                <ion-input [(ngModel)]="password" type="password" placeholder="{{'components.shared.login.placeholderPassword' | translate}}"></ion-input>
             </ion-col>
         </ion-row>
     </ion-grid>
     <ion-item *ngIf="passwordOlvidado" lines="none" button (click)="resetPassword()">
-        <ion-label color="primary">¿Has olvidado tu contraseña? Pulsa aquí.</ion-label>
+        <ion-label color="primary" translate>{{'components.shared.login.labelResetPassword'}}</ion-label>
     </ion-item>
     <ion-item lines="none" button (click)="registrar()">
-        <ion-label color="primary">¿No tienes cuenta? Regístrate</ion-label>
+        <ion-label color="primary" translate>{{'components.shared.login.labelRegistro'}}</ion-label>
     </ion-item>
     <ion-button [disabled]="!email || !password" class="custom-button" (click)="login()" expand="block" fill="clear" shape="round">
-        login
+        {{'components.shared.login.btnLogin' | translate}}
     </ion-button>
 </ion-content>

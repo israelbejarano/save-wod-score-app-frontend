@@ -127,6 +127,15 @@
                     "cancelText": "Salir",
                     "doneText": "Aceptar"
                 }
+            },
+            "login": {
+                "labelCorreo": "correo:",
+                "labelPassword": "contraseña:",
+                "btnLogin": "login",
+                "labelRegistro": "¿No tienes cuenta? Regístrate.",
+                "labelResetPassword": "¿Has olvidado tu contraseña? Pulsa aquí.",
+                "placeholderCorreo": "Introduce tu correo",
+                "placeholderPassword": "Introduce tu contraseña"
             }
         }
     },
