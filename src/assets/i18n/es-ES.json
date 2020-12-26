@@ -123,10 +123,14 @@
             "opciones": {
                 "labelSalir": "Salir",
                 "labelDescargar": "Descargar",
+                "labelPremium": "Activar premium",
+                "labelAnularPremium": "Anular premium",
                 "idioma": {
                     "cancelText": "Salir",
                     "doneText": "Aceptar"
-                }
+                },
+                "labelDesactivar": "Eliminar cuenta",
+                "labelActivar": "Activar cuenta"
             },
             "login": {
                 "labelCorreo": "Correo:",

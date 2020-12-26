@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { IUsuario } from '../models/interfaces/api.interfaces';
-import { Atleta } from '../models/classes/api.classes';
+import { Atleta, Usuario } from '../models/classes/api.classes';
 
 
 @Injectable({
@@ -32,9 +32,14 @@ export class UsuariosService {
 
   nuevoPasswordEvent = new EventEmitter();
   usuarioCreadoEvent = new EventEmitter();
+  usuarioUpdateadoEvent = new EventEmitter();
 
   constructor() {
     this.usuariosPrueba.push(this.usuarioPrueba);
+  }
+
+  public getUsuarioPrueba() {
+    return this.usuarioPrueba;
   }
 
   public getUsuarios(): IUsuario[] {
@@ -79,6 +84,13 @@ export class UsuariosService {
       this.usuariosPrueba.push(nuevoUsuario);
       ++this.idUsuario;
       this.usuarioCreadoEvent.emit('ok');
+    }
+  }
+
+  public updateUsuario(usuarioToUpdate: Usuario) {
+    if (usuarioToUpdate.id === this.usuarioPrueba.id) {
+      this.usuarioPrueba = usuarioToUpdate;
+      this.usuarioUpdateadoEvent.emit(this.usuarioPrueba);
     }
   }
 }
