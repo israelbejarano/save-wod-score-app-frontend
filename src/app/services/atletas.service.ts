@@ -18,15 +18,11 @@ export class AtletasService {
     sexo: 'M'
   };
 
-  // TODO: crear clase, interfaz usuario
-  // Usuario: id, email, password, activo, atleta, premium
-
   private sugerencias: ISugerencia[] = [];
   private idSugerencia = 1;
 
   updateAtletaEvent = new EventEmitter();
   createSugerenciaEvent = new EventEmitter();
-  nuevoPasswordEvent = new EventEmitter();
 
   constructor() { }
 
@@ -54,12 +50,5 @@ export class AtletasService {
     this.sugerencias.push(newSugerencia);
     this.createSugerenciaEvent.emit(this.sugerencias);
     ++this.idSugerencia;
-  }
-
-  public resetearPassword(email: string, nuevoPassword: string) {
-    // TODO: mirar si el email pertenece a un usuario, si existe cambiar
-    // cambiar el password y mandar evento con ok
-    // si no existe email mandar evento no_ok + mms error
-    // si hubo error al actualizar mandar no_ok + mms error
   }
 }

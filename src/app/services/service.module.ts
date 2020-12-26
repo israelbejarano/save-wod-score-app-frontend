@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { AtletasService, MensajesService, RecordsService, WodsService } from './api.services';
-
+import { AtletasService, MensajesService, RecordsService, WodsService, UsuariosService } from './api.services';
 
 @NgModule({
   declarations: [],
@@ -14,7 +13,8 @@ import { AtletasService, MensajesService, RecordsService, WodsService } from './
     AtletasService,
     MensajesService,
     RecordsService,
-    WodsService
+    WodsService,
+    UsuariosService
   ]
 })
 export class ServiceModule { }
