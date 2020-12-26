@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Usuario } from '../../../models/classes/api.classes';
+import { UsuariosService, MensajesService } from '../../../services/api.services';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.scss'],
 })
-export class RegistroComponent implements OnInit {
+export class RegistroComponent implements OnInit, OnDestroy {
 
   email: string;
   nombre: string;
@@ -17,9 +19,37 @@ export class RegistroComponent implements OnInit {
   showPasswordError = false;
   showEmailError = false;
 
-  constructor(private modalController: ModalController) { }
+  nuevoUsuarioSubscription: Subscription;
 
-  ngOnInit() {}
+  constructor(private modalController: ModalController,
+              private mensajesService: MensajesService,
+              private usuariosService: UsuariosService) { }
+
+
+  ngOnDestroy(): void {
+    if (this.nuevoUsuarioSubscription) {
+      this.nuevoUsuarioSubscription.unsubscribe();
+    }
+  }
+
+  ngOnInit() {
+    this.nuevoUsuarioSubscription = this.usuariosService.usuarioCreadoEvent.subscribe(resp => {
+      console.log(resp);
+      let mms: string;
+      if (resp !== 'ok') {
+        mms = resp;
+        // TODO: mandar toast de error
+      } else {
+        mms = 'Usuario creado con éxito.'
+      }
+      setTimeout(() => {
+        this.mensajesService.showBottomToast(mms, 2000);
+        if (resp === 'ok') {
+          this.salir();
+        }
+      }, 2000);
+    });
+  }
 
   crear() {
     this.showPasswordError = false;
@@ -29,7 +59,7 @@ export class RegistroComponent implements OnInit {
       const nuevoUsuario: Usuario = new Usuario();
       nuevoUsuario.email = this.email;
       nuevoUsuario.password = this.passwordA;
-      // TODO: servicio crear usuario
+      this.usuariosService.crearUsuario(nuevoUsuario, this.nombre);
     }
   }
 

@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { IUsuario } from '../models/interfaces/api.interfaces';
-import { MensajesService } from './api.services';
+import { Atleta } from '../models/classes/api.classes';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,17 @@ export class UsuariosService {
 
   private usuariosPrueba: IUsuario[] = [];
 
+  private idUsuario = 2;
+
   nuevoPasswordEvent = new EventEmitter();
+  usuarioCreadoEvent = new EventEmitter();
 
   constructor() {
     this.usuariosPrueba.push(this.usuarioPrueba);
+  }
+
+  public getUsuarios(): IUsuario[] {
+    return this.usuariosPrueba;
   }
 
   public getUsuarioByEmail(email: string): IUsuario {
@@ -53,6 +61,24 @@ export class UsuariosService {
     } else {
       // 1 = not_ok
       this.nuevoPasswordEvent.emit(1);
+    }
+  }
+
+  public crearUsuario(nuevoUsuario: IUsuario, nombre: string) {
+    const usuario: IUsuario = this.getUsuarioByEmail(nuevoUsuario.email);
+    if (usuario) {
+      this.usuarioCreadoEvent.emit('Ya existe el email, prueba a logearte.');
+    } else {
+      nuevoUsuario.activo = true;
+      nuevoUsuario.premium = false;
+      nuevoUsuario.id = this.idUsuario;
+      nuevoUsuario.atleta = new Atleta();
+      nuevoUsuario.atleta.nombre = nombre;
+      nuevoUsuario.atleta.email = nuevoUsuario.email;
+      nuevoUsuario.atleta.id = this.idUsuario;
+      this.usuariosPrueba.push(nuevoUsuario);
+      ++this.idUsuario;
+      this.usuarioCreadoEvent.emit('ok');
     }
   }
 }
