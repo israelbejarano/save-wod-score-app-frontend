@@ -11,6 +11,7 @@ export class ResetPasswordComponent implements OnInit {
   email: string;
   passwordA: string;
   passwordB: string;
+  showErrorMms = false;
 
   constructor(private modalController: ModalController) { }
 
@@ -22,6 +23,9 @@ export class ResetPasswordComponent implements OnInit {
 
   enviar() {
     // aunque se comprueba en el disabled comprobar si los password son igual
+    if (this.passwordA !== this.passwordB) {
+      this.showErrorMms = true;
+    }
     // TODO: servicio en atleta que manda el reseteo de password
     // cuando devuelva ok dissmiss de este componente + toast ok
     // si error mostrar toast con el error

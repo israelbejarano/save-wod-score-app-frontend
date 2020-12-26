@@ -145,7 +145,8 @@
                 "placeholderPasswordB": "Repite la nueva contraseña",
                 "btnEnviar": "enviar",
                 "btnSalir": "Salir",
-                "titulo": "Reseteo Contraseña"
+                "titulo": "Reseteo Contraseña",
+                "labelErrorMms": "Las contraseñas no coinciden."
             }
         }
     },
