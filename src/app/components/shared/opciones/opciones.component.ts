@@ -16,7 +16,6 @@ export class OpcionesComponent implements OnInit {
 
   idiomasDisponibles: string[] = [];
   idiomaSeleccionado: string;
-  usuarioPremium = false;
 
   constructor(private translateService: TranslateService,
               private usuariosService: UsuariosService,
@@ -26,7 +25,6 @@ export class OpcionesComponent implements OnInit {
     this.idiomaSeleccionado = this.translateService.getDefaultLang();
     this.idiomasDisponibles = this.translateService.getLangs();
     console.log('usuario: ', this.usuario);
-    this.usuarioPremium = this.usuario.premium;
   }
 
   // TODO: quitar el async y todo lo de mostrar el login
