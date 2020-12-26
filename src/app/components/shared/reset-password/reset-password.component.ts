@@ -20,6 +20,11 @@ export class ResetPasswordComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  enviar() {}
+  enviar() {
+    // aunque se comprueba en el disabled comprobar si los password son igual
+    // TODO: servicio en atleta que manda el reseteo de password
+    // cuando devuelva ok dissmiss de este componente + toast ok
+    // si error mostrar toast con el error
+  }
 
 }
